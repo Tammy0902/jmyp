@@ -6,6 +6,8 @@ import home from "./home"
 import groupbuying from "./groupbuying"
 import shoppingcart from "./shoppingcart"
 import mine from "./mine"
+import localedit from "./localedit"
+import pay from "./pay"
 
 
 export default new Router({
@@ -17,6 +19,9 @@ export default new Router({
     home,
     groupbuying,
     shoppingcart,
-    mine  
+    mine,
+    localedit,
+    pay
+
   ]
 })

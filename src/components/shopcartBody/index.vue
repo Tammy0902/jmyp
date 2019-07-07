@@ -114,7 +114,7 @@ export default {
     display: flex;
     align-items: center;        
     }
-.store input{
+.goodsList input{
     width:.4rem;
     height:.4rem;
     }
@@ -129,16 +129,13 @@ export default {
     box-sizing: border-box;
     line-height:.32rem;
     }   
-.goodsIntro input{
-    width:.4rem;
-    height:.4rem;
-    } 
 .goods-msg>.goodsList img{
     width:1.6rem;
     height:1.6rem;
     }
 .goodsMsg{
-    width:4.66rem;            
+    width:75%; 
+    margin-left:.2rem;           
     }
 .goodsMsg .title{
     width:4.66rem;
