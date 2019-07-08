@@ -11,7 +11,22 @@ module.exports = {
                 pathRewrite:{
                     "^/test":""
                 }
+            },
+            "/api":{
+                target:"https://s.h5.jumei.com",
+                changOrigin:true,
+                pathRewrite:{
+                    "^/api":""
+                }
+            },
+            "/abc":{
+                      //https://m.douyu.com/api/cate/recList?cid=&ct=
+                target:"https://m.douyu.com",
+                changeOrigin:true,
+                pathRewrite:{
+                "^/abc":""
             }
+        }
         }
     },
     configureWebpack:{
