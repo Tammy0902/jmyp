@@ -8,6 +8,7 @@ import shoppingcart from "./shoppingcart"
 import mine from "./mine"
 import localedit from "./localedit"
 import pay from "./pay"
+import order from "./order"
 
 
 export default new Router({
@@ -21,7 +22,8 @@ export default new Router({
     shoppingcart,
     mine,
     localedit,
-    pay
+    pay,
+    order
 
   ]
 })

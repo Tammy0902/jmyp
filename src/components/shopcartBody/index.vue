@@ -17,7 +17,7 @@
                     </div>
                     <div class="price-editor">
                         <span class="price">￥10.00</span>
-                        <span class="editor" @click="handleEditorPrice()">编辑</span>
+                        <span class="editor">编辑</span>
                     </div>
                 </div>
                 <!-- 点击隐藏 -->
@@ -35,7 +35,7 @@
                         <div class="goodsModify">
                             <i class="goodsDelte">删除</i>
                             <span>|</span>
-                            <span class="finish">完成</span>
+                            <span class="finish" >完成</span>
                         </div>
                     </div>
                 </div>
@@ -61,26 +61,21 @@
                 <p>合计</p>
                 <span>￥10</span>
             </div>
-            <div class="clearing">去结算(<span>1</span></span>)</div>
+            <div class="clearing">去结算(<span>1</span>)</div>
         </div>
    </div>
   </div>
 </template>
 <script>
-export default {
+
+
+export default {    
   name: "shopcartBody",
-  data() {
-    return {
-      img: "",
-      extra: "您的购物车中没有商品，请先去挑选心爱的商品吧！",
-      go: "去逛逛",
-      path:"/home"
-    };
-  }
+ 
 };
 </script>
 
-<style>
+<style scoped>
 #content{
   width: 100%;
   height: 100%;
