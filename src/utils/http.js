@@ -26,6 +26,7 @@ http.interceptors.response.use((res)=>{
 export default (method,url,data={})=>{
     if(method == "get"){
         // console.log(data)
+        // console.log(data)
         return http.get(url,{
             params:data
         })
