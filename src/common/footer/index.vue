@@ -43,7 +43,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 #footer {
   width: 100%;
   height: 0.96rem;
@@ -88,11 +88,7 @@ export default {
   z-index: 1;
   text-align: center;
 }
-<<<<<<< HEAD
 .router-link-active {
-=======
-.router-link-active,.active {
->>>>>>> wxm
   color: #fe4070;
 }
 </style>

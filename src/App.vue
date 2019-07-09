@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
+  <div>
     <router-view></router-view>
     <Footer/>
   </div>
 </template>
 <script>
 import Footer from "common/footer"
+import axios from "axios"
 export default {
+   name:"app",
   components:{
         Footer,
+
     }
+
+
 }
 </script>
+
+
+
 
 
 <style>

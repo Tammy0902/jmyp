@@ -49,8 +49,7 @@ export default {
     },
     mounted(){
         // setTimeout(goTime,1000)
-        
-        
+
     },
     methods:{
         goTime(entTime){
