@@ -2,16 +2,30 @@ const path =require("path");
 
 
 module.exports = {
-    devServer:{
+    devServer:{ 
         open:true,
         proxy:{
             "/test":{
                 target:"http://h5.jumei.com",
-                changOrigin:true,
+                changeOrigin:true,
                 pathRewrite:{
                     "^/test":""
                 }
-            }
+            },
+            "/yiqituan":{
+                target:"http://s.h5.jumei.com",
+                changeOrigin:true,
+              
+            },
+            // "/api":{
+            //     target:"https://s.h5.jumei.com",
+            //     changOrigin:true,
+            //     pathRewrite:{
+            //         "^/api":""
+            //     }
+            // },
+            // http://s.h5.jumei.com/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20
+          
         }
     },
     configureWebpack:{

@@ -10,6 +10,7 @@ import localedit from "./localedit"
 import pay from "./pay"
 import order from "./order"
 
+import search from "./search"
 
 export default new Router({
   routes: [
@@ -23,7 +24,8 @@ export default new Router({
     mine,
     localedit,
     pay,
-    order
+    order,
 
+    search
   ]
 })
