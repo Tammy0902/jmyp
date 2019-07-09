@@ -3,38 +3,38 @@
    <div class="goods-msg">
         <div class="goodsList">
             <div class="store">
-                <input type="checkbox">
+                <input type="checkbox" :checked="selectedAll" @change="handleToggle()">
                 <div>聚美发货</div>
             </div>
-            <div class="goodsIntro">
-                <input type="checkbox">
-                <img src="images/zh-img1.png">
-                <div class="goodsMsg">
-                    <p class="title">片仔癀珍珠臻白补水保湿淡化斑点爽肤水</p>
+            <div class="goodsIntro" v-for="(item,index) in goods" :key="index">
+                <input type="checkbox" :checked="item.flag" @change="handleToggleGoods(index)">
+                <img :src="item.img">
+                <div class="goodsMsg" >
+                    <p class="title">{{item.goodsName}}</p>
                     <div class="number-show">
                         <span>120ml 120</span>
-                        <span>x1</span>
+                        <span>x{{item.num}}</span>
                     </div>
                     <div class="price-editor">
-                        <span class="price">￥10.00</span>
-                        <span class="editor" @click="handleEditorPrice()">编辑</span>
+                        <span class="price">￥{{item.price}}</span>
+                        <span class="editor">编辑</span>
                     </div>
                 </div>
                 <!-- 点击隐藏 -->
-                <div class="goodsMsg" style="display:none">
-                    <p class="title">片仔癀珍珠臻白补水保湿淡化斑点爽肤水</p>
+                <div class="goodsMsg"  style="display:none">
+                    <p class="title">{{item.goodsName}}</p>
                     <div class="number-editor">
                         <div>
                             <span class="numReduce">-</span>
-                            <i class="num">100</i>
+                            <i class="num">{{item.num}}</i>
                             <span class="numAdd">+</span>
                         </div>
                     </div>
                     <div class="price-editor">
-                        <span class="price">￥10.00</span>
+                        <span class="price">￥{{item.price}}</span>
                         <div class="goodsModify">
                             <i class="goodsDelte">删除</i>
-                            <span>|</span>
+                            <span> | </span>
                             <span class="finish">完成</span>
                         </div>
                     </div>
@@ -56,27 +56,38 @@
         </div>
         <div class="summary">
             <div class="total">
-                <input type="checkbox">
+                <input type="checkbox" :checked="selectedAll" @change="handleToggle()">
                 <div>全选</div>
                 <p>合计</p>
-                <span>￥10</span>
+                <span>￥{{count.goodsPriceTal}}</span>
             </div>
-            <div class="clearing">去结算(<span>1</span></span>)</div>
+            <div class="clearing">去结算(<span>{{count.goodsNum}}</span>)</div>
         </div>
    </div>
   </div>
 </template>
 <script>
-export default {
+import {mapState,mapMutations,mapGetters} from "vuex"
+
+
+export default {    
   name: "shopcartBody",
-  data() {
-    return {
-      img: "",
-      extra: "您的购物车中没有商品，请先去挑选心爱的商品吧！",
-      go: "去逛逛",
-      path:"/home"
-    };
+  computed:{
+      ...mapState({
+          goods:state=>state.cart.goods,
+          selectedAll:state=>state.cart.selectedAll
+      }),
+      ...mapGetters({
+          count:"cart/count"
+      })
+  },
+  methods:{      
+      ...mapMutations({
+        handleToggle:"cart/handleToggle",
+        handleToggleGoods:"cart/handleToggleGoods"
+      })
   }
+ 
 };
 </script>
 
@@ -212,13 +223,14 @@ export default {
        bottom:.96rem;
    }
 .total{
-       width:2.4rem;
+       width:4rem;
        display:flex;
        justify-content: space-between;
        align-items: center;
    }
 .total div{
-        font-size:.28rem;        
+        font-size:.28rem;
+        width:.6rem;        
     }
 .total input{
         width:.4rem;
@@ -226,9 +238,11 @@ export default {
     }
    
 .total p{
-        color:#999
+        color:#999;
+        width:.6rem;
    }
 .total span{
+    width:2rem;
     font-size:.28rem;
     color:#fe4070;
     }
