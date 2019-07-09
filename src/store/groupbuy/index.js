@@ -13,7 +13,7 @@ const actions = {
         let getgroupbuyData=()=>http("get","/api/yiqituan/tab_list",
         {tab:tab,page:1,per_page:20})
         let data=await getgroupbuyData();
-        console.log(data.data,"112")
+        console.log(data,"112")
         context.commit('setgroupbuyData',data)
     }
 }

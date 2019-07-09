@@ -6,8 +6,12 @@ import home from "./home"
 import groupbuying from "./groupbuying"
 import shoppingcart from "./shoppingcart"
 import mine from "./mine"
+<<<<<<< HEAD
 import localedit from "./localedit"
 import pay from "./pay"
+=======
+import detail from "./detail"
+>>>>>>> wxm
 
 
 export default new Router({
@@ -20,8 +24,12 @@ export default new Router({
     groupbuying,
     shoppingcart,
     mine,
+<<<<<<< HEAD
     localedit,
     pay
 
+=======
+    detail 
+>>>>>>> wxm
   ]
 })
