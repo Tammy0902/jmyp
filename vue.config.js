@@ -2,16 +2,31 @@ const path =require("path");
 
 
 module.exports = {
-    devServer:{
+    devServer:{ 
         open:true,
         proxy:{
             "/test":{
                 target:"http://h5.jumei.com",
-                changOrigin:true,
+                changeOrigin:true,
                 pathRewrite:{
                     "^/test":""
                 }
-            }
+            },
+            "/home":{
+                target:"www.jumei.com",
+                changeOrigin:true,
+                pathRewrite:{
+                    "^/home":""
+                }
+            },
+            // "/api":{
+            //     target:"https://s.h5.jumei.com",
+            //     changOrigin:true,
+            //     pathRewrite:{
+            //         "^/api":""
+            //     }
+            // },
+
         }
     },
     configureWebpack:{
