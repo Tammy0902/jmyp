@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import groupbuy from './groupbuy'
+import groupbuy from './groupbuy/index'
 Vue.use(Vuex)
 
 const state = {}

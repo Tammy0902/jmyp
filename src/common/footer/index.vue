@@ -86,7 +86,7 @@ export default {
   z-index: 1;
   text-align: center;
 }
-.active {
+.router-link-active,.active {
   color: #fe4070;
 }
 </style>

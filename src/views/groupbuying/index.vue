@@ -12,9 +12,9 @@
         >{{item.name}}</li>
       </ul>
     </header>
-    <group-menu @menuChange="handleMenuChange"></group-menu>
-
-    <div class="goods" v-for="(item,index) in groupgoods" :key="index">
+<Loading v-if="loadingFlag"/>
+    <router-link  class="goods" v-for="(item,index) in groupgoods" :key="index" 
+    :to="'/detail/'+item.item_id" tag="div" v-if="!loadingFlag">
       <div class="goods_top">
         <img :src="item.image" alt />
         <p class="people-number">{{item.buyer_number_text}}</p>
@@ -30,28 +30,13 @@
           <h6>{{item.single_price}}</h6>
         </div>
       </div>
-    </div>
-
-    <!-- <div class="goods">
-            <div class="goods_top">
-                <img src="../mine/img/goods.jpg" alt="">
-                <p>1.7万条评论</p>
-            </div>
-            <div class="goods_foot">
-                <h4><span>[2人团]</span>【手机专享】是这研究说阿加如何热阿额还是科技10片</h4>
-                <div class="foot_price">
-                    <button>去开团</button>
-                    <p>￥69</p>
-                    <h6>单买价：￥79</h6>
-                </div>
-            </div>
-    </div>-->
+    </router-link>
   </div>
 </template>
 
 <script>
 // import Nav from "../../components/nav"
-import { getgroupbuy } from "api/groupbuy";
+import { getgroupbuy, getgroupbuybady,getgroupbuyall} from "api/groupbuy";
 import { mapState } from "vuex";
 import GroupMenu from "./children/group-menu";
 export default {
@@ -73,8 +58,8 @@ export default {
         { id: 12, name: "下期预告", tab: "coutuan_pre" }
       ],
       actionIndex: 0,
-      groupgoods: []
-      // selectedIndex:0
+      groupgoods: [],
+      loadingFlag:true
     };
   },
   computed: {
@@ -83,23 +68,31 @@ export default {
     })
   },
   components: {
-    // Nav
+    // Nav1111
     GroupMenu
   },
+  
   methods: {
-    handleIndex(item) {
+    async handleIndex(item) {
+      this.loadingFlag=true;
       this.actionIndex = item.id;
       this.$store.dispatch("groupbuy/requestGroupListData", {
         tab:item.tab
       });
+      let data=await getgroupbuyall(item.tab);
+      console.log(data.data,"aa")
+      this.loadingFlag=false;
+      this.$set(this.groupgoods = data.data);
     },
+ 
     handleMenuChange() {
       // console.log(selectedIndex)
     }
   },
   async created() {
     let data = await getgroupbuy();
-    // console.log(data.data,selectedIndex)
+    //console.log(data.data,selectedIndex)
+    this.loadingFlag=false;
     this.groupgoods = data.data;
   }
 };
