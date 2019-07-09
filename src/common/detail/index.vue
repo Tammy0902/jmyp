@@ -34,7 +34,8 @@ export default {
     data(){
         return{
             
-            groupDetail:[]
+            groupDetail:[],
+            entTime:null
         }
     },
     // created(){
@@ -46,8 +47,22 @@ export default {
         let data=await getgroupDetailData(this.$route.params.id)
         console.log(data.data,"getgroupDetailData")
         this.groupDetail=data.data
+        this.entTime=data.data.recommend_data[0].end_time
+        console.log(this.entTime)
+    },
+    mounted(){
+        // setTimeout(goTime,1000)
         
-
+        
+    },
+    methods:{
+        goTime(entTime){
+            let data=new Date();
+            console.log(data,data.getDay(this.entTime),
+            data.getHours(this.entTime),data.getMinutes(this.entTime)
+            ,data.getTime(),this.entTime);
+        },
+        
     }
    
 }

@@ -13,6 +13,9 @@
       </ul>
     </header>
 <Loading v-if="loadingFlag"/>
+  <div class="loading" v-if="scrollLoading">
+    <i class="fa fa-spinner fa-pulse"></i>
+  </div>
     <router-link  class="goods" v-for="(item,index) in groupgoods" :key="index" 
     :to="'/detail/'+item.item_id" tag="div" v-if="!loadingFlag">
       <div class="goods_top">
@@ -59,7 +62,8 @@ export default {
       ],
       actionIndex: 0,
       groupgoods: [],
-      loadingFlag:true
+      loadingFlag:true,
+      scrollLoading:true
     };
   },
   computed: {
@@ -94,7 +98,15 @@ export default {
     //console.log(data.data,selectedIndex)
     this.loadingFlag=false;
     this.groupgoods = data.data;
-  }
+  },
+  // mounted(){
+  //   this.$refs.bscroll.handleScrollStart(()=>{
+  //     this.scrollLoading=true;
+  //   })
+  //   this.$refs.bscroll.handleScrollEnd(()=>{
+  //     this.scrollLoading=false;
+  //   })
+  // }
 };
 </script>
 
