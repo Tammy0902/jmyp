@@ -38,10 +38,7 @@ export default {
             entTime:null
         }
     },
-    // created(){
-
-    //     console.log(this.$route.params)
-    //     },
+    
      async created(){
          let size=640;
         let data=await getgroupDetailData(this.$route.params.id)
