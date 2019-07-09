@@ -78,7 +78,7 @@ export default {
     border-sizing:border-box;
  }
 .goods .goods-right{
-    padding:.2rem .2rem 0 .2rem;
+    padding:.2rem .2rem 0 .25rem;
     display:flex;
     flex-direction: column;
     width:65%;
