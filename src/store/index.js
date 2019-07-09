@@ -4,10 +4,10 @@ import cart from './cart'
 
 Vue.use(Vuex)
 
- const store = new Vuex.Store({
-    moudles:{
+const store = new Vuex.Store({
+    modules:{
         cart
     }
 })
 
-export default store
+export default store;

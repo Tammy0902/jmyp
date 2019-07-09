@@ -9,7 +9,7 @@
             <div class="goodsIntro" v-for="(item,index) in goods" :key="index">
                 <input type="checkbox" :checked="item.flag" @change="handleToggleGoods(index)">
                 <img :src="item.img">
-                <div class="goodsMsg" >
+                <div class="goodsMsg" v-show="item.show">
                     <p class="title">{{item.goodsName}}</p>
                     <div class="number-show">
                         <span>120ml 120</span>
@@ -17,25 +17,25 @@
                     </div>
                     <div class="price-editor">
                         <span class="price">￥{{item.price}}</span>
-                        <span class="editor">编辑</span>
+                        <span class="editor" @click="handleShow(index)">编辑</span>
                     </div>
                 </div>
                 <!-- 点击隐藏 -->
-                <div class="goodsMsg"  style="display:none">
+                <div class="goodsMsg"  v-show="!item.show">
                     <p class="title">{{item.goodsName}}</p>
                     <div class="number-editor">
                         <div>
-                            <span class="numReduce">-</span>
+                            <span class="numReduce" @click="handleNumReduce(index)">-</span>
                             <i class="num">{{item.num}}</i>
-                            <span class="numAdd">+</span>
+                            <span class="numAdd" @click="handleNumAdd(index)">+</span>
                         </div>
                     </div>
                     <div class="price-editor">
                         <span class="price">￥{{item.price}}</span>
                         <div class="goodsModify">
-                            <i class="goodsDelte">删除</i>
+                            <i class="goodsDelte" @click="handleDelgoods(index)">删除</i>
                             <span> | </span>
-                            <span class="finish">完成</span>
+                            <span class="finish" @click="handleHide(index)">完成</span>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,12 @@
                 <p>合计</p>
                 <span>￥{{count.goodsPriceTal}}</span>
             </div>
-            <div class="clearing">去结算(<span>{{count.goodsNum}}</span>)</div>
+            <router-link class="clearing" 
+            tag="div"
+            to="/order"
+            >去结算(<span>{{count.goodsNum}}</span>)</router-link>
+
+
         </div>
    </div>
   </div>
@@ -75,7 +80,8 @@ export default {
   computed:{
       ...mapState({
           goods:state=>state.cart.goods,
-          selectedAll:state=>state.cart.selectedAll
+          selectedAll:state=>state.cart.selectedAll,
+        //   show:state=>state.cart.show
       }),
       ...mapGetters({
           count:"cart/count"
@@ -84,14 +90,20 @@ export default {
   methods:{      
       ...mapMutations({
         handleToggle:"cart/handleToggle",
-        handleToggleGoods:"cart/handleToggleGoods"
+        handleToggleGoods:"cart/handleToggleGoods",
+        handleShow:"cart/handleShow",
+        handleHide:"cart/handleHide",
+        handleDelgoods:"cart/handleDelgoods",
+        handleNumAdd:"cart/handleNumAdd",
+        handleNumReduce:"cart/handleNumReduce"
+
       })
   }
  
 };
 </script>
 
-<style>
+<style scoped>
 #content{
   width: 100%;
   height: 100%;
@@ -146,7 +158,8 @@ export default {
     }
 .goodsMsg{
     width:75%; 
-    margin-left:.2rem;           
+    margin-left:.2rem;
+    padding-right:.2rem;          
     }
 .goodsMsg .title{
     width:4.66rem;

@@ -1,7 +1,7 @@
 <template>
   <div id="shoppingcart">
     <Heade title="购物车" />
-    <!-- <emptycart /> -->
+    <emptycart />
     <ShopcartBody />
     <Footer />
   </div>
@@ -11,7 +11,7 @@
 import Emptycart from "components/emptycart";
 import ShopcartBody from "components/shopcartBody";
 import {mapActions} from "vuex";
-console.log(...mapActions);
+
 
 export default {
   name: "shoppingcart",
@@ -22,17 +22,14 @@ export default {
     Emptycart,
     ShopcartBody
   },
-  
-  methods: {
-    
-    
-    ...mapActions({
-      getGoods: "cart/getActionGoods"
+methods: {
+    ...mapActions({        
+      getGoods:"cart/getActionGoods"
     })
   }
 };
 </script>
 
 
-<style>
+<style scoped>
 </style>
