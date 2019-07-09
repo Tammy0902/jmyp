@@ -2,15 +2,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-<<<<<<< HEAD
-Vue.use(Vuex)
-
-const state = {
-    goods:[]
-}
-const mutations = {
-    
-=======
 
 Vue.use(Vuex)
 
@@ -48,7 +39,6 @@ const mutations = {
         }
         state.selectedAll = select;
     }
->>>>>>> tammy
 }
 const actions = {
     getActionGoods({commit}){
@@ -56,16 +46,6 @@ const actions = {
             methods:"get",
             url:"http://localhost:3000/goods"
         }).then((data)=>{
-<<<<<<< HEAD
-            console.log(data);            
-        })
-    }
-}
-
-export default {
-    state,
-    mutations,
-=======
             commit("handleMutationsGoods",data.data) 
             console.log(data.data);
                  
@@ -98,7 +78,6 @@ export default {
     state,
     mutations,
     getters,
->>>>>>> tammy
     actions,
     mutations,
     namespaced:true

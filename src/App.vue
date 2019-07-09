@@ -7,13 +7,9 @@
 import axios from "axios"
 
 export default {
-<<<<<<< HEAD
     name:"app"
 
 
-=======
-  name:"app"
->>>>>>> tammy
 }
 </script>
 

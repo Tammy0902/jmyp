@@ -16,11 +16,7 @@
                         <span>x{{item.num}}</span>
                     </div>
                     <div class="price-editor">
-<<<<<<< HEAD
-                        <span class="price">￥10.00</span>
-=======
                         <span class="price">￥{{item.price}}</span>
->>>>>>> tammy
                         <span class="editor">编辑</span>
                     </div>
                 </div>
@@ -38,13 +34,8 @@
                         <span class="price">￥{{item.price}}</span>
                         <div class="goodsModify">
                             <i class="goodsDelte">删除</i>
-<<<<<<< HEAD
-                            <span>|</span>
-                            <span class="finish" >完成</span>
-=======
                             <span> | </span>
                             <span class="finish">完成</span>
->>>>>>> tammy
                         </div>
                     </div>
                 </div>
@@ -70,26 +61,17 @@
                 <p>合计</p>
                 <span>￥{{count.goodsPriceTal}}</span>
             </div>
-<<<<<<< HEAD
-            <div class="clearing">去结算(<span>1</span>)</div>
-=======
             <div class="clearing">去结算(<span>{{count.goodsNum}}</span>)</div>
->>>>>>> tammy
         </div>
    </div>
   </div>
 </template>
 <script>
-<<<<<<< HEAD
-=======
 import {mapState,mapMutations,mapGetters} from "vuex"
->>>>>>> tammy
 
 
 export default {    
   name: "shopcartBody",
-<<<<<<< HEAD
-=======
   computed:{
       ...mapState({
           goods:state=>state.cart.goods,
@@ -105,7 +87,6 @@ export default {
         handleToggleGoods:"cart/handleToggleGoods"
       })
   }
->>>>>>> tammy
  
 };
 </script>
