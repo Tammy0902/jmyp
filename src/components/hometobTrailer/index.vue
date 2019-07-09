@@ -1,5 +1,17 @@
 <template>
-    <div>
+    <div class="hometobTrailer">
+        <Search/>
+        <Nav/>
+          <div class="goods-con">
+        <div class="con">
+            <router-link class="title-a  " to="/home/hometobTrailer" tag="div">
+                今日十点上新
+            </router-link>
+            <router-link class="title-b " to="/home/hometobnew" tag="div">
+                明日十点预告
+            </router-link>
+        </div>
+        </div>
          <div class="goods">
                 <img src="" alt="">
                 <div class="goods-right">
@@ -60,7 +72,36 @@ export default {
 </script>
 
 <style scoped>
-.goods{
+
+.goods-con{
+    width:100%;
+    height:100%;
+    background:#f5f5f5;
+}
+.con {
+    display:flex;
+    flex-wrap:wrap;
+    overflow-y: auto;
+}
+.con .title-a {
+    width:50%;
+    height:.86rem;
+    background:white;
+    text-align: center;
+    line-height:.86rem;
+}
+.con .router-link-active{
+    color:pink;
+}
+.con .title-b {
+    width:50%;
+    height:.86rem;
+    text-align: center;
+    background:white;
+    line-height:.86rem;
+    font-size:.22rem;
+}
+ .goods{
     flex:0 0 auto;
     display:flex;
     width:100%;
@@ -78,7 +119,7 @@ export default {
     box-sizing:border-box;
  }
 .goods .goods-right{
-    padding:.2rem .2rem 0 .26rem;
+    padding:.2rem .2rem 0 .2rem;
     display:flex;
     flex-direction: column;
     width:65%;
@@ -94,5 +135,4 @@ export default {
 .goods .goods-right p:nth-child(2) span:nth-child(2){
     font-size:.10rem;
 }
-
 </style>

@@ -1,17 +1,13 @@
 <template>
-
     <div class="wrap"> 
-       <Heade/>
-    <div class="top">
-        <HomeSearch/>
-        <Homenav/>  
-    </div>
+       <Heade/> 
+    <div class="mom">
+        <Search/>
+        <Nav/>
     <div class="active">
             <i class="iconfont">&#xe603;</i>
             <span>今日团购,每天10点上新</span>
-
     </div>
-    
     <div class="ad">
         <img src="" alt="">
         <div class="right">
@@ -53,69 +49,73 @@
             </div>
         </div>
     </div>
-    <div class="recommend">
-        <div class="active">
-            <i class="iconfont">&#xe603;</i>
-            <span>全球热销品牌</span>
-        </div>
-        <div class="recommend-list">
-                
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-        </div>
-    </div>
-
-    <div class="snap">
+        <div class="recommend">
             <div class="active">
-                    <i class="iconfont">&#xe603;</i>
-                    <span>疯抢商场早十点半</span>
+                <i class="iconfont">&#xe603;</i>
+                <span>全球热销品牌</span>
             </div>
-            <div class="snap-con">
-                <a href="javascript:;"></a>
-                <img src="" alt=""/>
-                <div class="t">9.9包邮</div>
-                <div class="snap-b">
-                    <div class="snap-b-l">
-                        <p>黄色小鸭品牌专场</p>
-                        <p>
-                            <span> 仅剩</span>
-                            <span> 03天</span>
-                            <span> 11时</span>
-                            <span> 41分</span>
-                        </p>
-                    </div>
-                    <div class="snap-b-r">
+            <div class="recommend-list">
+                    
                         <img src="" alt="">
-                    </div> 
-                </div>
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
             </div>
+        </div>
+
+        <div class="snap">
+                <div class="active">
+                        <i class="iconfont">&#xe603;</i>
+                        <span>疯抢商场早十点半</span>
+                </div>
+                <div class="snap-con">
+                    <a href="javascript:;"></a>
+                    <img src="" alt=""/>
+                    <div class="t">9.9包邮</div>
+                    <div class="snap-b">
+                        <div class="snap-b-l">
+                            <p>黄色小鸭品牌专场</p>
+                            <p>
+                                <span> 仅剩</span>
+                                <span> 03天</span>
+                                <span> 11时</span>
+                                <span> 41分</span>
+                            </p>
+                        </div>
+                        <div class="snap-b-r">
+                            <img src="" alt="">
+                        </div> 
+                    </div>
+                </div>
+        </div>
     </div>
 </div>
    
 </template>
 
 <script scoped>
-import HomeSearch from "components/homeSearch"
-import Homenav from "components/homenav"
+
+
 export default {
 components:{
-        HomeSearch,
-        Homenav,
+        
     }
 }
 </script>
 
 <style scoped>
+.mom{
+    padding: 1rem 0 0 0;
+}
+.router-link-active{
+    color:pink;
+}
 .wrap{
     padding-bottom:0.96rem;
 }
-.top{
-    padding:1rem 0 0 0 ;
-}
+
 .header{
     width:100%;
     height:.9rem;

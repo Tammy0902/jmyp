@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 import {home,getgroupbuy} from "api/home.js";
 export default {    
@@ -26,26 +25,8 @@ export default {
     components:{
     },
     async created() {
-//       const  xmlhttp=new XMLHttpRequest();
-//         xmlhttp.open("GET","http://h5.jumei.com/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=",true);
-//         xmlhttp.send();
-//         xmlhttp.onreadystatechange=function()
-//     {
-//   if (xmlhttp.readyState==4 && xmlhttp.status==200)
-//     {
-//         console.log(xmlhttp.responseText)
-            
-//     }
-//   }
-        let data = await home();
-        console.log(data);
-    //   axios.get('http://h5.jumei.com/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=')
-    // .then(function (response) {
-    //     console.log(response.data.data.theirchose);
-        // this.swiperdata = response.data.data.theirchose;
-//   })   
-
-     
+            let data = await home();
+            console.log(data);
   }
 }
 </script>

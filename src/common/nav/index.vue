@@ -25,15 +25,15 @@ export default {
                 },
                 {
                     title:"极品免税店",
-                    path:"/home/hometexshopbody",
+                    path:"/home/dutyFreeStore",
                 },
                 {
                     title:"母婴",
-                    path:"/home/homemombody",
+                    path:"/home/mom",
                 },
                 {
                     title:"轻著",
-                    path:"/home/homekindbody",
+                    path:"/home/kindgoods",
                 },
                
             ]
@@ -45,9 +45,11 @@ export default {
 </script>
 
 <style scoped>
+.router-link-active{
+    color:pink;
+}
 .nav{
     width:100%;
-   
 } 
 .nav ul {
     display: flex;

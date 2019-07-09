@@ -1,10 +1,9 @@
 <template>
     <div class="wrap">
         <Heade/>
-        <div class="top">
-       <HomeSearch/>
-        <Homenav/>
-        </div>
+        <div class="dutyFreeStore">
+               <Search/>
+                <Nav/>
         <div class="nav">
             <ul>
                 <li><i class="iconfont">&#xe601;</i><span>海外直供</span></li>
@@ -23,29 +22,30 @@
                 <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
             </div>
         </div>
+        </div>
     </div>
 
 </template>
 
 <script>
-import HomeSearch from "components/homeSearch"
-import Homenav from "components/homenav"
+
 export default {
     components:{
-        HomeSearch,
-        Homenav,
+     
     }
    
 }
 </script>
 
 <style scoped>
+.dutyFreeStore{
+    padding:1rem 0 0 0 ;
+}
 .wrap{
     padding-bottom:0.96rem;
 }
-.top{
-    padding:1rem 0 0 0 ;
-}
+
+
 .nav ul {
     width:100%;
     height:2.16rem;

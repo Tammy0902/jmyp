@@ -1,11 +1,9 @@
 <template>
     <div class="wrap">
         <Heade/>
-       <div class="top">
-        <HomeSearch/>
-        <Homenav/>  
-        </div>
          <div class="kind-wrap">
+                <Search/>
+                <Nav/>
             <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -97,24 +95,22 @@
 </template>
 
 <script>
-import HomeSearch from "components/homeSearch"
-import Homenav from "components/homenav"
+
 export default {
     components:{
-        HomeSearch,
-        Homenav,
+       
     }
    
 }
 </script>
 
 <style scoped>
+.kind-wrap{
+    padding:1rem 0 0 0;
+}
 .wrap{
     padding-bottom:0.96rem;
     width:100%;
-}
-.top{
-    padding:1rem 0 0 0 ;
 }
 .swiper-container{
     width:100%;

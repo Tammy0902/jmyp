@@ -1,13 +1,15 @@
 <template>
      <div class="head">
         <input type="text"/>
-        <span class="iconfont">&#xe65c;</span>
+        <router-link to="/search" tag="span" class="iconfont">&#xe65c;</router-link>
+        <!-- <span class="iconfont">&#xe65c;</span> -->
+        <!-- <router-view></router-view> -->
     </div>
 </template>
 
 <script>
 export default {
-
+    name:"search",
 }
 </script>
 

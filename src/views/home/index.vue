@@ -1,22 +1,17 @@
 <template>
     <div class="home">
-        <HomeSearch/>
-        <Homenav/>
-        <Hometob/>
+        <router-view></router-view>
+        <Footer/>
     </div>
 </template>
 
 <script>
-import HomeSearch from "components/homeSearch"
-import Homenav from "components/homenav"
-import Hometob from "components/hometob"
+
 
 
 export default {
     components:{
-        HomeSearch,
-        Homenav,
-        Hometob,
+    
     },
     data(){
         return{
@@ -38,4 +33,5 @@ export default {
     padding:0 0 .96rem 0;
     box-sizing: border-box;
     }
+
 </style>

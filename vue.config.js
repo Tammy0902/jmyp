@@ -12,12 +12,10 @@ module.exports = {
                     "^/test":""
                 }
             },
-            "/home":{
-                target:"www.jumei.com",
+            "/yiqituan":{
+                target:"http://s.h5.jumei.com",
                 changeOrigin:true,
-                pathRewrite:{
-                    "^/home":""
-                }
+              
             },
             // "/api":{
             //     target:"https://s.h5.jumei.com",
@@ -26,7 +24,8 @@ module.exports = {
             //         "^/api":""
             //     }
             // },
-
+            // http://s.h5.jumei.com/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20
+          
         }
     },
     configureWebpack:{

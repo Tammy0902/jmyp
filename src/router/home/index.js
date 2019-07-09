@@ -11,9 +11,20 @@ export default{
             name:"hometobTrailer",
         },
         {
-            path:"hometobnew",
-            component:()=>import('components/hometobnew'),
-            name:"hometobnew",
-        }
+            path:"kindgoods",
+            component:()=>import("components/kindgoods"),
+            name:"kindgoods"
+        },
+        {
+            path:"mom",
+            component:()=>import("components/mom"),
+            name:"mom"
+        },
+        {
+            path:"dutyFreeStore",
+            component:()=>import("components/dutyFreeStore"),
+            name:"dutyFreeStore"
+        },
+      
     ]
 }
