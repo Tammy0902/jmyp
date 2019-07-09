@@ -10,7 +10,7 @@
         <i>2</i>件商品
       </div>
     </div>
-    <div class="clearing">提交订单</div>
+    <router-link class="clearing" tag="div" to="/pay">提交订单</router-link>
   </div>
 </template>
 
