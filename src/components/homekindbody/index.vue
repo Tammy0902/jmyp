@@ -1,5 +1,10 @@
 <template>
-    <div>
+    <div class="wrap">
+        <Heade/>
+       <div class="top">
+        <HomeSearch/>
+        <Homenav/>  
+        </div>
          <div class="kind-wrap">
             <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -54,14 +59,14 @@
                         <img src="" alt="">
                 </div>
             </div>
-            <div class="active">
+            <!-- <div class="active">
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
             <div class="snap">
                     <img src="" alt="">
                     <div class="snap-r">广告</div>
-            </div>
+            </div> -->
             <div class="active">
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
@@ -69,7 +74,7 @@
             <div class="snap">
                 <div class="snap-con">
                     <a href="javascript:;"></a>
-                    <img src="" alt="">
+                    <img src="http://mp5.jmstatic.com//jmstore/image/000/006/6845_std/5d1ad8b8734b6_2048_1024.jpg?1562208329&imageView2/2/w/640/q/90" alt=""/>
                     <div class="t">9.9包邮</div>
                     <div class="snap-b">
                         <div class="snap-b-l">
@@ -86,17 +91,31 @@
                         </div> 
                     </div>
                 </div>
-            </div>
+        </div>
+    </div>
     </div>
 </template>
 
 <script>
+import HomeSearch from "components/homeSearch"
+import Homenav from "components/homenav"
 export default {
-
+    components:{
+        HomeSearch,
+        Homenav,
+    }
+   
 }
 </script>
 
 <style scoped>
+.wrap{
+    padding-bottom:0.96rem;
+    width:100%;
+}
+.top{
+    padding:1rem 0 0 0 ;
+}
 .swiper-container{
     width:100%;
     height:3rem;
@@ -130,6 +149,7 @@ img {
     display:flex;
     padding:0.2rem;
     margin-bottom:.2rem;
+    box-sizing: border-box;
 }
 .ad img{
     width:2.8rem;
@@ -137,8 +157,11 @@ img {
     background:#cccccc;
 }
 .ad .right{
+    width:70%;
     padding:.3rem;
+    box-sizing: border-box;
 }
+
 .ad .right p:nth-child(1){
 
 }
@@ -151,7 +174,7 @@ img {
     font-size:0.3rem;
 }
 .ad .right .price p:nth-child(2){
-    margin-top:.2rem;
+    margin-top:.1rem;
 }
 .ad .right .price p:nth-child(2) span{
     display: inline-block;
@@ -164,7 +187,7 @@ img {
     color:#eb4269;
 }
 .ad>.right>.title{
-    margin-bottom:1rem;
+    margin-bottom:.7rem;
 }
 
 
@@ -202,8 +225,10 @@ img {
 /* ------------------------ */
 
 .snap{
+    width:100%;
     margin-bottom: .3rem;
     position:relative;
+  
 }
 .snap-con{
     height:5rem;
@@ -215,6 +240,9 @@ img {
     height:5rem;
     width:100%;
     position:absolute;
+    box-sizing :border-box;
+    left:0;
+    top:0;
 }
 .snap .t{
     position: absolute;
@@ -223,7 +251,7 @@ img {
     color:white;
     font-size:.24rem;
 }
-.snap img{
+.snap .snap-con img{
     height:3.6rem;
     width:100%;
     background:#cccccc;
@@ -234,7 +262,7 @@ img {
     height:1.4rem;
     justify-content: space-between;
     padding:.2rem;
-
+    box-sizing:border-box;
 }
 .snap .snap-con .snap-b .snap-b-l {
     line-height:.4rem;

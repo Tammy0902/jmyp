@@ -1,14 +1,17 @@
 <template>
-    <div>
-        <HomeSearch/>
-         <Homenav/>
+    <div class="wrap">
+        <Heade/>
+        <div class="top">
+       <HomeSearch/>
+        <Homenav/>
+        </div>
         <div class="nav">
-       <ul>
-           <li><i class="iconfont">&#xe601;</i><span>海外直供</span></li>
-           <li><i class="iconfont">&#xe602;</i><span>原装正品</span></li>
-           <li><i class="iconfont">&#xe600;</i><span>极速到货</span></li>
-           <li><i class="iconfont">&#xe627;</i><span>轻松退货</span></li>
-       </ul>
+            <ul>
+                <li><i class="iconfont">&#xe601;</i><span>海外直供</span></li>
+                <li><i class="iconfont">&#xe602;</i><span>原装正品</span></li>
+                <li><i class="iconfont">&#xe600;</i><span>极速到货</span></li>
+                <li><i class="iconfont">&#xe627;</i><span>轻松退货</span></li>
+            </ul>
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
         <div class="goods">
@@ -37,6 +40,12 @@ export default {
 </script>
 
 <style scoped>
+.wrap{
+    padding-bottom:0.96rem;
+}
+.top{
+    padding:1rem 0 0 0 ;
+}
 .nav ul {
     width:100%;
     height:2.16rem;

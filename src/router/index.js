@@ -21,7 +21,7 @@ export default new Router({
     },    
     home,
     homemombody,
-    // homekindbody,
+    homekindbody,
     hometexshopbody,
     groupbuying,
     shoppingcart,

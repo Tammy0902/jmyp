@@ -1,8 +1,11 @@
 <template>
 
-    <div class="wrapper"> 
-    <HomeSearch/>
+    <div class="wrap"> 
+       <Heade/>
+    <div class="top">
+        <HomeSearch/>
         <Homenav/>  
+    </div>
     <div class="active">
             <i class="iconfont">&#xe603;</i>
             <span>今日团购,每天10点上新</span>
@@ -106,8 +109,13 @@ components:{
 }
 </script>
 
-<style>
-
+<style scoped>
+.wrap{
+    padding-bottom:0.96rem;
+}
+.top{
+    padding:1rem 0 0 0 ;
+}
 .header{
     width:100%;
     height:.9rem;
@@ -232,8 +240,10 @@ components:{
 
 
 .snap{
+    width:100%;
     margin-bottom: .3rem;
     box-sizing: border-box;
+    
 }
 .snap-con{
     height:5rem;
@@ -264,7 +274,7 @@ components:{
     height:1.4rem;
     justify-content: space-between;
     padding:.2rem;
-
+    box-sizing:border-box;
 }
 .snap .snap-con .snap-b .snap-b-l {
     line-height:.4rem;

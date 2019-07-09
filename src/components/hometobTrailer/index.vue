@@ -75,10 +75,10 @@ export default {
     width:2rem;
     height:2rem;
     background:#cccccc;
-    border-sizing:border-box;
+    box-sizing:border-box;
  }
 .goods .goods-right{
-    padding:.2rem .2rem 0 .25rem;
+    padding:.2rem .2rem 0 .26rem;
     display:flex;
     flex-direction: column;
     width:65%;

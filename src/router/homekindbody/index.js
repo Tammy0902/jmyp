@@ -1,6 +1,6 @@
 
 export default{
     path:"/home/homekindbody",
-    component:()=>import("components/navkindbody"),
+    component:()=>import("components/homekindbody"),
     name:"homekindbody"
 }
