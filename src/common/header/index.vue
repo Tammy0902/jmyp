@@ -2,7 +2,7 @@
   <div id="header">
     <i class="iconfont goBack">&#xe605;</i>
     <h3 class="shoppingCart">{{title}}</h3>
-    <i class="iconfont goHome">&#xe600;</i>
+    <router-link class="iconfont goHome" to="/home" tag="i">&#xe600;</router-link>
   </div>
 </template>
 

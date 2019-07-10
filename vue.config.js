@@ -12,6 +12,7 @@ module.exports = {
                     "^/test":""
                 }
             },
+         
             "/api":{
                 target:"https://s.h5.jumei.com",
                 changOrigin:true,
@@ -20,7 +21,6 @@ module.exports = {
                 }
             },
             "/abc":{
-                      //https://m.douyu.com/api/cate/recList?cid=&ct=
                 target:"https://m.douyu.com",
                 changeOrigin:true,
                 pathRewrite:{
@@ -29,17 +29,21 @@ module.exports = {
             "/yiqituan":{
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true,
-              
             },
-            // "/api":{
-            //     target:"https://s.h5.jumei.com",
-            //     changOrigin:true,
-            //     pathRewrite:{
-            //         "^/api":""
-            //     }
-            // },
-            // http://s.h5.jumei.com/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20
-          
+            "/getlist":{
+                target:"m.zhe800.com.cn",
+                changeOrigin:true,
+                // http://apiv2.pinduoduo.com/api/fiora/subject/goods?subject_id=5576&page=1&size=3
+            //     http://m.zhe800.com.cn/getlist?page=1
+            },
+            "/jm":{
+                target:"http://s.h5.jumei.com",
+                changOrigin:true,
+                ws: false, 
+                pathRewrite:{
+                    "^/jm":""
+                }
+            }
         }
         }
     },
