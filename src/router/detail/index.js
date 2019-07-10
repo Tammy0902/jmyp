@@ -3,7 +3,4 @@ export default{
     component:()=>import("common/detail"), 
     name:"detail",
     props:true,//路由解耦 
-    meta:{
-        flag:false
-    }
 }

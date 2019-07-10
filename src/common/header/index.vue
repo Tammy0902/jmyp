@@ -1,9 +1,6 @@
 <template>
-  <div class="headerCom">
-    <p  @click="backaction()">
-      <i class="iconfont goBack">&#xe605;</i>
-      </p>
-    
+  <div id="header">
+    <i class="iconfont goBack">&#xe605;</i>
     <h3 class="shoppingCart">{{title}}</h3>
     <router-link class="iconfont goHome" to="/home" tag="i">&#xe600;</router-link>
   </div>
@@ -11,24 +8,18 @@
 
 <script>
 export default {
-  name:"headerCom",
+  name:"heade",
   props:{
     title:{
       type:String,
       default:"聚美优品"
     }
-  },
-  methods:{
-    backAction(){
-        this.$router.back();
-        console.log("back")    
-        }
   }
 };
 </script>
 
 <style>
-.headerCom {
+#header {
   width: 100%;
   height: 0.82rem;
   font-size: 0.32rem;
@@ -45,7 +36,7 @@ export default {
   z-index: 1;
 }
 
-.headerCom > .iconfont {
+#header > .iconfont {
   font-size: 0.32rem;
   color: #999;
 }

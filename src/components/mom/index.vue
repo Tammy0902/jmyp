@@ -1,6 +1,6 @@
 <template>
     <div class="wrap"> 
-       <HeaderCom/> 
+       <Heade/> 
        <div class="mom-content">
     <div class="mom">
         <Search/>

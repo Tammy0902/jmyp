@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeaderCom title="我的聚美"/>
+        <Heade title="个人中心"/>
         <h2>mine</h2>
     </div>
 </template>

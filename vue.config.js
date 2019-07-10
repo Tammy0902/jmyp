@@ -36,14 +36,6 @@ module.exports = {
                 // http://apiv2.pinduoduo.com/api/fiora/subject/goods?subject_id=5576&page=1&size=3
             //     http://m.zhe800.com.cn/getlist?page=1
             },
-            "/jm":{
-                target:"http://s.h5.jumei.com",
-                changOrigin:true,
-                ws: false, 
-                pathRewrite:{
-                    "^/jm":""
-                }
-            }
         }
         }
     },

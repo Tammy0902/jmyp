@@ -1,5 +1,5 @@
 <template>
-  <div class="orderBody">    
+  <div id="orderBody">    
       <div class="shop">
         <i class="iconfont icon-store"></i>
         <div>聚美发货</div>

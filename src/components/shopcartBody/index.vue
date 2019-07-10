@@ -1,5 +1,5 @@
 <template>
-  <div class="shopcartBody">
+  <div id="content">
    <div class="goods-msg">
         <div class="goodsList">
             <div class="store">
@@ -43,12 +43,12 @@
             <!-- 满150元享受商家包邮 -->
             <div class="postage">
                 <!-- 不满150显示，满150隐藏 -->
-                <div class="pay-postage" v-show="count.signs">
+                <div class="pay-postage"  >
                     <i class="iconfont icon-money"></i>
-                    <b>还差<span>{{count.postage}}</span>元享受商家包邮</b>
+                    <b>还差<span>140</span>元享受商家包邮</b>
                 </div>
                 <!-- 满150显示，不满150隐藏 -->
-                <div class="no-postage" style="display:none" v-show="!count.signs">
+                <div class="no-postage" style="display:none">
                     <i class="iconfont icon-money"></i>
                     <b>已享受商家满150元包邮</b>
                 </div>
@@ -65,6 +65,8 @@
             tag="div"
             to="/order"
             >去结算(<span>{{count.goodsNum}}</span>)</router-link>
+
+
         </div>
    </div>
   </div>
@@ -78,7 +80,8 @@ export default {
   computed:{
       ...mapState({
           goods:state=>state.cart.goods,
-          selectedAll:state=>state.cart.selectedAll        
+          selectedAll:state=>state.cart.selectedAll,
+        //   show:state=>state.cart.show
       }),
       ...mapGetters({
           count:"cart/count"
@@ -101,7 +104,7 @@ export default {
 </script>
 
 <style scoped>
-.shopcartBody{
+#content{
   width: 100%;
   height: 100%;
     }

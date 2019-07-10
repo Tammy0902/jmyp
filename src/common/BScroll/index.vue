@@ -26,7 +26,7 @@ export default {
             this.scroll.on('scrollEnd',()=>{
                 setTimeout(()=>{
                     cb();
-                },500)    
+                },1000)    
             })
         }
     }

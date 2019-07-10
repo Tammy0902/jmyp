@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <HeaderCom/>
+        <Heade/>
         <div class="dutyFreeStore-content">
         <div class="dutyFreeStore">
                <Search/>

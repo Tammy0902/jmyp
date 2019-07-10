@@ -1,5 +1,5 @@
 <template>
-  <div class="localeditBody">
+  <div id="content">
     <form>
       <div class="sitehurdle" v-for="(item,index) in site" :key="index">
         <label>{{item.title}}</label>
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style>
-.localeditBody{
+#content{
     padding-top:.82rem;
     display: flex;
     flex-direction: column;

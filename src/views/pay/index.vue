@@ -1,6 +1,6 @@
 <template>
-  <div class="pay">
-    <HeaderCom title="收银台" />
+  <div id="pay">
+    <Heade title="收银台" />
     <div class="order-sum">
       <div>订单金额</div>
       <div>￥10</div>
@@ -46,7 +46,7 @@ export default {};
 </script>
 
 <style scoped>
-.pay {
+#pay {
   width: 100%;
   height: 100%;
   padding-top: 0.82rem;
@@ -56,7 +56,7 @@ export default {};
   align-items: center;
   background: #f5f5f5;
 }
-.pay .order-sum {
+#pay .order-sum {
   width: 100%;
   height: 0.86rem;
   line-height: 0.86rem;

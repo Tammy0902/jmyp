@@ -1,7 +1,7 @@
 <template>
-  
   <div class="group">
-    
+    <!-- <Nav/> -->
+    <!-- <div class="box"></div> -->
     <header class="buttom">
       <ul class="nav">
         <li
@@ -12,39 +12,29 @@
         >{{item.name}}</li>
       </ul>
     </header>
-    <div class="canscroll">
-        <BScroll ref="bscroll">  
-          <template>
-            <div>
-                    <Loading v-if="loadingFlag"/>
-                        <div class="loading" v-if="scrollLoading">
-                          <i class="fa fa-spinner fa-pulse"></i>
-                        </div>
-                        
-                        <router-link  class="goods" v-for="(item,index) in groupgoods" :key="index" 
-                        :to="'/detail/'+item.item_id" tag="div" v-if="!loadingFlag">
-                          <div class="goods_top">
-                            <img :src="item.image" alt />
-                            <p class="people-number">{{item.buyer_number_text}}</p>
-                          </div>
-                          <div class="goods_foot">
-                            <div class="goods-middle">
-                              <span class="goods-num">{{item.group_name_tag}}</span>
-                              {{item.short_name}}
-                            </div>
-                            <div class="foot_price">
-                              <button>去开团</button>
-                              <p>{{item.jumei_price}}</p>
-                              <h6>{{item.single_price}}</h6>
-                            </div>
-                          </div>
-                      </router-link>
-            </div>
-          </template>
-        </BScroll>
-    </div>
+<Loading v-if="loadingFlag"/>
+  <div class="loading" v-if="scrollLoading">
+    <i class="fa fa-spinner fa-pulse"></i>
   </div>
-  
+    <router-link  class="goods" v-for="(item,index) in groupgoods" :key="index" 
+    :to="'/detail/'+item.item_id" tag="div" v-if="!loadingFlag">
+      <div class="goods_top">
+        <img :src="item.image" alt />
+        <p class="people-number">{{item.buyer_number_text}}</p>
+      </div>
+      <div class="goods_foot">
+        <div class="goods-middle">
+          <span class="goods-num">{{item.group_name_tag}}</span>
+          {{item.short_name}}
+        </div>
+        <div class="foot_price">
+          <button>去开团</button>
+          <p>{{item.jumei_price}}</p>
+          <h6>{{item.single_price}}</h6>
+        </div>
+      </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -73,7 +63,7 @@ export default {
       actionIndex: 0,
       groupgoods: [],
       loadingFlag:true,
-      scrollLoading:false
+      scrollLoading:true
     };
   },
   computed: {
@@ -94,10 +84,9 @@ export default {
         tab:item.tab
       });
       let data=await getgroupbuyall(item.tab);
-      // console.log(data.data,"aa")
+      console.log(data.data,"aa")
       this.loadingFlag=false;
-      this.groupgoods=data.data
-      // this.$set(this.groupgoods=data.data);
+      this.$set(this.groupgoods = data.data);
     },
  
     handleMenuChange() {
@@ -109,44 +98,27 @@ export default {
     //console.log(data.data,selectedIndex)
     this.loadingFlag=false;
     this.groupgoods = data.data;
-    // console.log(this.groupgoods)
   },
-  mounted(){
-    this.$refs.bscroll.handleScrollStart(()=>{
-      this.scrollLoading=true;
-    })
-    this.$refs.bscroll.handleScrollEnd(()=>{
-      this.scrollLoading=false;
-    })
-  }
+  // mounted(){
+  //   this.$refs.bscroll.handleScrollStart(()=>{
+  //     this.scrollLoading=true;
+  //   })
+  //   this.$refs.bscroll.handleScrollEnd(()=>{
+  //     this.scrollLoading=false;
+  //   })
+  // }
 };
 </script>
 
 <style>
-.canscroll{
-  height: 100%;
-  overflow: auto;
-}
-.wrapper{
-   overflow: auto;
-}
-.loading {
-  width: 100%;
-  height: 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.loading > i {
-  font-size: 0.4rem;
-}
 .people-number {
   font-size: 11px;
   padding: 4px 7px;
   position: absolute;
   left: 0;
+  /* top: 5.875rem; */
   top: 2.4rem;
-  /* z-index: 0; */
+  z-index: 0;
   border: 0.0625rem solid #eee;
   border-left: 0;
   border-top-right-radius: 1.5625rem;
@@ -158,6 +130,7 @@ export default {
   font-size: 14px;
   max-height: 34px;
   line-height: 18px;
+
   margin-top: 10px;
 }
 
@@ -179,14 +152,12 @@ header {
   overflow: -moz-scrollbars-none;
   overflow: auto;
   height: 0.88rem;
-  position: relative;
-  top:0;
-  z-index: 20;
 }
 ::-webkit-scrollbar {
   display: none;
 }
 .nav {
+  /* display: flex; */
   height: 0.88rem;
   overflow: auto;
   width: 20rem;
@@ -203,7 +174,6 @@ header {
   margin-bottom: 0.16rem;
   background: #fff;
   position: relative;
-  
 }
 .goods_top {
   display: flex;
@@ -242,7 +212,5 @@ header {
 .group {
   background: #f5f5f5;
   height: 100%;
-  overflow: hidden;
-  
 }
 </style>

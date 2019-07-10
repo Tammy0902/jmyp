@@ -14,15 +14,15 @@
             </div>
         </div>
         </div>
-           <div class="goods" v-for="(item,index) in msg" :key="index" >
-                <img :src="item.big_thumb" alt="">
+           <div class="goods" v-for="(item,index) in msg" :key="index"  >
+                <img :src="item.image" alt="">
                 <div class="goods-right">
                     <h5>
-                        {{item.brand_name}}
+                        {{item.medium_name}}
                     </h5>
-                    <p><span class="price-one">{{item.market_price}}</span><span class="prive-two">{{item.product_price}}</span></p>
-                    <p>{{item.super_number}}评论</p>
-                </div>
+                    <p><span class="price-one">{{item.jumei_price}}</span></p>
+                    <p>{{item.buyer_number_text}}</p>
+             </div>
         </div>
     </div>
     
@@ -30,11 +30,10 @@
 </template>
 
 <script>
-import {home} from "api/home.js"
-import {pingtuan} from "api/home.js"
-import {Cs} from "api/home.js"
+import {getgroupbuy,gethomeToggle} from "api/groupbuy.js"
+console.log(gethomeToggle)
 import axios from "axios"
-console.log(Cs)
+
 export default {
     data(){
         return{
@@ -47,34 +46,25 @@ export default {
        
     },
     methods:{
-        handleToggle(){
+        async  handleToggle(){
             this.flag = !this.flag;
             if(this.flag == false){
-               axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=2").then((data)=>{
-            
-                        this.msg = data.data.data.theirchose;
-                })
-               
+             let data = await gethomeToggle();
+              console.log(data)
+               this.msg = data.data;
             }
                if(this.flag == true){
-               axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=1").then((data)=>{
-            
-                        this.msg = data.data.data.theirchose;
-                })
+                 let data = await getgroupbuy();
+                this.msg = data.data;
+
             }
         }
     },
-   async created(){
-       let getdata = await pingtuan()
-       console.log(getdata);
-       console.log(Cs)
-       let getCs = await Cs();
-        
-       axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=2").then((data)=>{
-            
-                        this.msg = data.data.data.theirchose;
-        })
-      }
+    async created(){
+       let data = await getgroupbuy();
+       console.log(data.data)
+      this.msg = data.data;
+    }
 }
 </script>
 
@@ -132,7 +122,11 @@ export default {
     width:65%;
 }
 .goods .goods-right p:nth-child(2){
-    margin-top: 0.38rem ;
+    margin-top: 0.18rem ;
+   margin-bottom:0.1rem;
+}
+.goods .goods-right p:nth-child(3){
+    margin-top: 0.1rem ;
    margin-bottom:0.1rem;
 }
 .goods .goods-right p:nth-child(2) span:nth-child(1){

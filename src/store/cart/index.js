@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const state = {
     goods:[],
     selectedAll:true,
+    // show:true
 }
 
 
@@ -92,20 +93,9 @@ const getters = {
             }
         }
         var goodsPriceTal = (goodsPrice/100)
-        //判断商品总价是否超过150 超过150显示免邮 低于150显示差多少金额免邮 
-        var nopostage = 150;     
-        if(goodsPriceTal>=150){
-            var signs = false;
-        }else if(goodsPriceTal>=0 && goodsPriceTal<150){
-            var signs = true;
-            var postage = (nopostage*1000 - (goodsPriceTal*1000))/1000            
-        }
-        
         return{
             goodsNum,
-            goodsPriceTal,
-            signs,
-            postage
+            goodsPriceTal
         }
     }
 }
