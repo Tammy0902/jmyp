@@ -49,7 +49,7 @@ export default {
 .no-goods > .empty-cart{
   width: 2rem;
   height: 2rem;
-  background:url(../../../static/images/zh-img1.png) no-repeat;
+  /* background:url(../../../static/images/zh-img1.png) no-repeat; */
   background-size: cover;
 }
 .no-goods > p {
