@@ -1,6 +1,7 @@
 <template>
     <div class="wrap"> 
-       <Heade/> 
+       <Header/> 
+       <div class="mom-content">
     <div class="mom">
         <Search/>
         <Nav/>
@@ -92,7 +93,7 @@
         </div>
     </div>
 </div>
-   
+ </div>  
 </template>
 
 <script scoped>
@@ -106,8 +107,10 @@ components:{
 </script>
 
 <style scoped>
+.mom-content{
+      padding: 0.86rem 0 0.96rem 0;
+}
 .mom{
-    padding: 1rem 0 0 0;
 }
 .router-link-active{
     color:pink;

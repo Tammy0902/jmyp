@@ -2,7 +2,7 @@
 <div class="wrap">
         <div class="search">
             <div class="head">
-                <input type="text" placeholder="搜索商品名称,品牌,功效" />
+                <router-link to="/searchList" tag="input" ></router-link>
                 <span >返回</span>
             </div>
             <ul class="search-list">
