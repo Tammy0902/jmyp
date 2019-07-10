@@ -7,6 +7,6 @@ import Nav from "./nav";
 
 Vue.component("Loading",Loading)
 Vue.component("Search",Search)
-Vue.component("Heade",Header)
+Vue.component("Header",Header)
 Vue.component("Footer",Footer)
 Vue.component("Nav",Nav)

@@ -1,6 +1,6 @@
 <template>
-    <div id="localedit">
-        <Heade title="地址编辑"/>
+    <div class="localedit">
+        <Header title="地址编辑"/>
         <LocaleditBody/>
         
     </div>

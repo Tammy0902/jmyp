@@ -1,21 +1,15 @@
 <template>
-  <div>
+  <div id="app">
     <router-view></router-view>
-    <Footer/>
   </div>
 </template>
 <script>
-import Footer from "common/footer"
-import axios from "axios"
+import Footer from "common/footer";
+import axios from "axios";
 export default {
-   name:"app",
-  components:{
-        Footer,
+  name: "app",
 
-    }
-
-
-}
+};
 </script>
 
 
@@ -23,11 +17,8 @@ export default {
 
 
 <style>
-
-#app{
-  width:100%;
-  height:100%;
+#app {
+  width: 100%;
+  height: 100%;
 }
-
-
 </style>

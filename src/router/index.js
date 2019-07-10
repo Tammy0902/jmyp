@@ -11,6 +11,7 @@ import pay from "./pay"
 import detail from "./detail"
 import order from "./order"
 import search from "./search"
+import goodspage from "./goodspage"
 
 export default new Router({
   routes: [
@@ -22,15 +23,12 @@ export default new Router({
     groupbuying,
     shoppingcart,
     mine,
-
     localedit,
     pay,
     order,
-
-
     detail,
-
-    search
+    search,
+    goodspage
 
   ]
 })

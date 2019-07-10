@@ -1,8 +1,9 @@
 <template>
-  <div id="shoppingcart">
-    <Heade title="购物车" />
-    <emptycart />
-    <ShopcartBody />
+  <div class="shoppingcart">
+    <Header title="购物车" />
+    
+    <ShopcartBody v-show="appear"/>
+    <emptycart v-show="!appear"/>
     <Footer />
   </div>
 </template>
@@ -15,6 +16,13 @@ import {mapActions} from "vuex";
 
 export default {
   name: "shoppingcart",
+  data(){
+    return{
+      appear:true,
+    }
+    
+  },
+  
   created() {
     this.getGoods();
   }, 
@@ -32,4 +40,8 @@ methods: {
 
 
 <style scoped>
+  .shoppingcart{
+    height:100%;
+    width:100%;
+  }
 </style>

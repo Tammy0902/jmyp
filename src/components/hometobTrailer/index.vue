@@ -12,7 +12,7 @@
             </router-link>
         </div>
         </div>
-         <div class="goods">
+        <router-link class="goods" to="/goodspage" tag="div"> 
                 <img src="" alt="">
                 <div class="goods-right">
                     <h5>
@@ -21,7 +21,7 @@
                     <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
                     <p>评论</p>
                 </div>
-            </div>
+        </router-link>
             <div class="goods">
                 <img src="" alt="">
                 <div class="goods-right">
@@ -66,8 +66,13 @@
 </template>
 
 <script>
+import {home} from "api/home";
 export default {
-
+    //  async created(){
+    //      let data = await home();
+    //      console.log(data);
+         
+    //  } 
 }
 </script>
 
