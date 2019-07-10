@@ -5,10 +5,10 @@ const http = axios.create({
 })
 
 http.interceptors.request.use((config)=>{
-    if(config.method == "get"){
-        
-    }else if(config.method == "post"){
-        config.headers["content-type"] = "application/x-www-form-urlencoded";
+    if(config.method=="get"){
+       
+    }else if(config.method=="post"){
+        config.headers["content-type"]="application/x-www-form-urlencoded"
     }
     return config
 },(err)=>{
@@ -20,12 +20,14 @@ http.interceptors.response.use((res)=>{
     }
 })
 
-export default(method,url,data={})=>{
+
+export default (method,url,data={})=>{
     if(method == "get"){
         return http.get(url,{
             params:data
         })
     }else if(method == "post"){
         return http.post(url,data);
-    }
+    } 
+
 }

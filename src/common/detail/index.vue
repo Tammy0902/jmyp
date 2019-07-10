@@ -61,7 +61,7 @@ export default {
         console.log(data,"getgroupDetailData")
         this.groupDetail=data.data
         this.entTime=data.data.recommend_data[0].end_time
-        console.log(this.entTime)
+        // console.log(this.entTime)
     },
     mounted(){},
     methods:{
