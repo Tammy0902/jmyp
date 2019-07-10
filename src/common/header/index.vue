@@ -1,6 +1,9 @@
 <template>
   <div id="header">
-    <i class="iconfont goBack">&#xe605;</i>
+    <p  @click="backaction">
+      <i class="iconfont goBack">&#xe605;</i>
+      </p>
+    
     <h3 class="shoppingCart">{{title}}</h3>
     <i class="iconfont goHome">&#xe600;</i>
   </div>
@@ -14,6 +17,12 @@ export default {
       type:String,
       default:"聚美优品"
     }
+  },
+  methods:{
+    backAction(){
+        this.$router.back();
+        console.log("back")    
+        }
   }
 };
 </script>
