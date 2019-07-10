@@ -22,9 +22,10 @@ export default {
     align-items:center;
 }
 .head input{
-    width:6rem;
+    width:75%;
     height:0.6rem;
     margin:0.3rem;
+    margin-left:0.5rem;
     border-radius:0.3rem;
     background:#f5f5f5;
     border:none;

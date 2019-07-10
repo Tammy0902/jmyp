@@ -5,7 +5,9 @@
          <div class="kind-wrap">
                 <Search/>
                 <Nav/>
-            <div class="swiper-container">
+              <Loading v-if="loading"/>
+        <div v-if="!loading">
+            <div class="swiper-container" >
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="" alt="">
@@ -70,14 +72,14 @@
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
-            <div class="snap" v-for="(item ,index) in logo" :key="index">
-                <div class="snap-con">
+            <div class="snap">
+                <div class="snap-con" v-for="(item ,index) in msg" :key="index">
                     <a href="javascript:;"></a>
-                    <img :src="item.silde_original" alt=""/>
-                    <div class="t">9.9包邮</div>
+                    <img :src="item.image_url_set.main[320]" alt=""/>
+                    <div class="t">{{item.discount_string}}</div>
                     <div class="snap-b">
                         <div class="snap-b-l">
-                            <p>{{item.slide_title}}</p>
+                            <p>{{item.title}}</p>
                             <p>
                                 <span> 仅剩</span>
                                 <span> 03天</span>
@@ -86,7 +88,7 @@
                             </p>
                         </div>
                         <div class="snap-b-r" >
-                            <img src="" alt="">
+                            <img  :src="item.image_url_set.brand[320]" alt="">
                         </div> 
                     </div>
                 </div>
@@ -94,25 +96,23 @@
     </div>
     </div>
     </div>
+</div>
 </template>
 
 <script>
-import axios from "axios"
+import {kindgoods} from "api/groupbuy"
+
 export default {
     data(){
         return{
-            msg:"",
-            logo:"",
+            msg:"", 
+            loading:true,
         }
     },
-    created(){
-          axios.get("https://apim.restful.5lux.com.cn/index/index_slider").then((data)=>{
-              console.log(data.data.data)
-                  this.logo = data.data.data;
-          })
-          axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=20").then((data)=>{
-                 this.msg = data.data.data.theirchose;
-          })
+    async created(){
+        let data = await kindgoods();
+        this.msg = data.item_list;
+       this.loading = false;
     }
    
 }
@@ -175,7 +175,7 @@ img {
 }
 .ad .right{
     width:70%;
-    padding:.3rem;
+    padding-left:.3rem;
     box-sizing: border-box;
 }
 
@@ -202,9 +202,10 @@ img {
     line-height:.4rem;
     border-radius: .2rem;
     color:#eb4269;
+    margin-right:.3rem;
 }
 .ad>.right>.title{
-    margin-bottom:.7rem;
+    margin-bottom:.8rem;
 }
 
 

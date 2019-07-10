@@ -12,7 +12,8 @@ module.exports = {
                     "^/test":""
                 }
             },
-         
+            // http://h5.jumei.com/luxury/ajaxList?page=1&card_id=1837
+          
             "/api":{
                 target:"https://s.h5.jumei.com",
                 changOrigin:true,
@@ -29,14 +30,13 @@ module.exports = {
             "/yiqituan":{
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true,
+             },
+             "/ajax_new":{
+                target:"http://www.jumeiglobal.com",
+                changOrigin:true,
             },
-            "/getlist":{
-                target:"m.zhe800.com.cn",
-                changeOrigin:true,
-                // http://apiv2.pinduoduo.com/api/fiora/subject/goods?subject_id=5576&page=1&size=3
-            //     http://m.zhe800.com.cn/getlist?page=1
-            },
-        }
+       
+            }
         }
     },
     configureWebpack:{
