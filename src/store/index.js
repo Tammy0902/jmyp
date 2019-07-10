@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import groupbuy from './groupbuy/index'
+import cart from './cart'
 Vue.use(Vuex)
 
 const state = {}
@@ -17,8 +18,11 @@ const store = new Vuex.Store({
     mutations,
     getters,
     modules:{
-        groupbuy
+        groupbuy,
+        cart
     }
 })
+
+
 
 export default store;
