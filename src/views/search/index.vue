@@ -3,7 +3,7 @@
         <div class="search">
             <div class="head">
                 <router-link to="/searchList" tag="input" ></router-link>
-                <span >返回</span>
+                <router-link to="/home" tag="span" >返回</router-link>
             </div>
             <ul class="search-list">
                 <li class="search-link">
@@ -90,11 +90,21 @@
 </template>
 
 <script>
+
 export default {
-    methods:{
-        backhome(){
-            
+    data(){
+        return{
+            msg:"",
         }
+    },
+    components:{
+       
+    },
+    methods:{
+      
+    },
+     created(){
+   
     }
 }
 </script>
@@ -105,7 +115,7 @@ export default {
     background:#7f7f7f;
     height:100%;
     display:flex;
-   justify-content:flex-end;
+    justify-content:flex-end;
 }
 .search{
     width:80%;
@@ -123,7 +133,9 @@ export default {
     height:0.6rem;
     margin-left:0.2rem;
     border-radius:0.2rem;
-    background:#f5f5f5;
+    margin:.1rem 0 .1rem 0;
+    background:#f0e9e9;
+    border:none;
 }
 .head  span{
     margin-left:0.4rem;
@@ -137,7 +149,6 @@ export default {
     width:100%;
     overflow-y: auto;
     flex-wrap:no-wrap ;
-    margin-top:.08rem;
     align-items:center;
     border:1px solid #eeeeee;
     flex-direction: column;
@@ -145,7 +156,7 @@ export default {
 }
 
 .search-list>li>ul>li{
-    border-top:1px solid #cccccc;
+  
 }
 .search-list>li{
     width:100%;

@@ -14,16 +14,18 @@
             </div>
         </div>
         </div>
-           <div class="goods" v-for="(item,index) in msg" :key="index"  >
+        <Loading v-if="loading"></loading>
+           <router-link class="goods" v-for="(item,index) in msg" :key="index"  :to="{path:'/details',query:{id:index}}">
                 <img :src="item.image" alt="">
                 <div class="goods-right">
+                    
                     <h5>
                         {{item.medium_name}}
                     </h5>
                     <p><span class="price-one">{{item.jumei_price}}</span></p>
                     <p>{{item.buyer_number_text}}</p>
              </div>
-        </div>
+        </router-link>
     </div>
     
 
@@ -31,7 +33,7 @@
 
 <script>
 import {getgroupbuy,gethomeToggle} from "api/groupbuy.js"
-console.log(gethomeToggle)
+
 import axios from "axios"
 
 export default {
@@ -39,7 +41,7 @@ export default {
         return{
             msg:"",
             flag:true,
-            
+            loading: true,
         }
     },
     components:{
@@ -47,23 +49,26 @@ export default {
     },
     methods:{
         async  handleToggle(){
+            this.loading = true;
             this.flag = !this.flag;
             if(this.flag == false){
-             let data = await gethomeToggle();
-              console.log(data)
-               this.msg = data.data;
+             
+                let data = await gethomeToggle();
+                this.loading = false;
+                this.msg = data.data;
             }
                if(this.flag == true){
-                 let data = await getgroupbuy();
+                  
+                let data = await getgroupbuy();
+                this.loading = false;
                 this.msg = data.data;
-
             }
         }
     },
     async created(){
-       let data = await getgroupbuy();
-       console.log(data.data)
-      this.msg = data.data;
+        let data = await getgroupbuy();
+        this.msg = data.data;
+        this.loading = false;
     }
 }
 </script>

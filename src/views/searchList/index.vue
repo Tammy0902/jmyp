@@ -31,10 +31,11 @@ export default {
 }
 .head input{
     width:4.9rem;
-    height:0.4rem;
+    height:0.6rem;
    margin:.1rem 0 .1rem 0;
     border-radius:0.2rem;
-    background:#f5f5f5;
+    background:#f0e9e9;
+     border:none;
 }
 .head  span{
     font-size:0.35rem;

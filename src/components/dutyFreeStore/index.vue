@@ -14,15 +14,24 @@
             </ul>
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
+<<<<<<< HEAD
         <div class="goods" v-for="(item,index) in msg" :key="index">
             <img :src="item.big_thumb" alt="">
             <div class="goods-right">
                 <h5>
                      {{item.brand_name}}
+=======
+        <Loading v-if="loading"/>
+        <router-link class="goods" v-for="(item,index) in msg" :to="{path:'/details',query:{id:index}}" v-if ="!loading" :key="index" >
+            <img :src="item.image" alt="">
+            <div class="goods-right">
+                <h5>
+                     {{item.medium_name}}
+>>>>>>> hehuilin
                 </h5>
                 <p><span class="price-one">{{item.market_price}}</span><span class="prive-two">{{item.product_price}}</span></p>
             </div>
-        </div>
+        </router-link>
         </div>
     </div>
 </div>
@@ -30,6 +39,7 @@
 
 <script>
 
+<<<<<<< HEAD
 // import {dutyFreeStore} from "api/home.js"
 import axios from "axios"
 export default {
@@ -39,9 +49,34 @@ export default {
         }
     },
     created(){
+=======
+
+import {dutyFreeStore} from "api/groupbuy.js"
+
+export default {
+    data(){
+        return{
+            msg:"",
+            flag:true,
+            loading:true,
+        }
+    },
+    components:{
+       
+    },
+    methods:{
+      
+    },
+    async created(){
+        let data = await dutyFreeStore();
+        this.msg = data.data;
+        console.log(data)
+        if(data){
+             this.loading = false;
+        }
+>>>>>>> hehuilin
       
     }
-   
 }
 </script>
 
@@ -53,7 +88,11 @@ export default {
  position:absolute;
 }
 .dutyFreeStore{
+<<<<<<< HEAD
    
+=======
+   padding-bottom:0.96rem;
+>>>>>>> hehuilin
 }
 .wrap{
     padding-bottom:0.96rem;

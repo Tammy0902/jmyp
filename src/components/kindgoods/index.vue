@@ -5,7 +5,9 @@
          <div class="kind-wrap">
                 <Search/>
                 <Nav/>
-            <div class="swiper-container">
+              <Loading v-if="loading"/>
+        <div v-if="!loading">
+            <div class="swiper-container" >
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="" alt="">
@@ -70,6 +72,7 @@
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
+<<<<<<< HEAD
             <div class="snap" v-for="(item ,index) in logo" :key="index">
                 <div class="snap-con">
                     <a href="javascript:;"></a>
@@ -78,6 +81,16 @@
                     <div class="snap-b">
                         <div class="snap-b-l">
                             <p>{{item.slide_title}}</p>
+=======
+            <div class="snap">
+                <div class="snap-con" v-for="(item ,index) in msg" :key="index">
+                    <a href="javascript:;"></a>
+                    <img :src="item.image_url_set.main[320]" alt=""/>
+                    <div class="t">{{item.discount_string}}</div>
+                    <div class="snap-b">
+                        <div class="snap-b-l">
+                            <p>{{item.title}}</p>
+>>>>>>> hehuilin
                             <p>
                                 <span> 仅剩</span>
                                 <span> 03天</span>
@@ -86,7 +99,11 @@
                             </p>
                         </div>
                         <div class="snap-b-r" >
+<<<<<<< HEAD
                             <img src="" alt="">
+=======
+                            <img  :src="item.image_url_set.brand[320]" alt="">
+>>>>>>> hehuilin
                         </div> 
                     </div>
                 </div>
@@ -94,6 +111,7 @@
     </div>
     </div>
     </div>
+<<<<<<< HEAD
 </template>
 
 <script>
@@ -113,6 +131,25 @@ export default {
           axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=20").then((data)=>{
                  this.msg = data.data.data.theirchose;
           })
+=======
+</div>
+</template>
+
+<script>
+import {kindgoods} from "api/groupbuy"
+
+export default {
+    data(){
+        return{
+            msg:"", 
+            loading:true,
+        }
+    },
+    async created(){
+        let data = await kindgoods();
+        this.msg = data.item_list;
+       this.loading = false;
+>>>>>>> hehuilin
     }
    
 }
@@ -175,7 +212,7 @@ img {
 }
 .ad .right{
     width:70%;
-    padding:.3rem;
+    padding-left:.3rem;
     box-sizing: border-box;
 }
 
@@ -202,9 +239,10 @@ img {
     line-height:.4rem;
     border-radius: .2rem;
     color:#eb4269;
+    margin-right:.3rem;
 }
 .ad>.right>.title{
-    margin-bottom:.7rem;
+    margin-bottom:.8rem;
 }
 
 
