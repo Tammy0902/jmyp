@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div class="emptycart">
     <div  class="no-goods">
       <div class="empty-cart"></div>
         <p>{{extra}}</p>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-#content{
+.emptycart{
   width: 100%;
   height: 100%;
 }

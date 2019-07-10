@@ -1,6 +1,6 @@
 <template>
-  <div id="header">
-    <p  @click="backaction">
+  <div class="headerCom">
+    <p  @click="backaction()">
       <i class="iconfont goBack">&#xe605;</i>
       </p>
     
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name:"heade",
+  name:"headerCom",
   props:{
     title:{
       type:String,
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-#header {
+.headerCom {
   width: 100%;
   height: 0.82rem;
   font-size: 0.32rem;
@@ -45,7 +45,7 @@ export default {
   z-index: 1;
 }
 
-#header > .iconfont {
+.headerCom > .iconfont {
   font-size: 0.32rem;
   color: #999;
 }

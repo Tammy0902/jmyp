@@ -1,21 +1,15 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <Footer v-if="$route.meta.flag"/>
   </div>
 </template>
 <script>
-import Footer from "common/footer"
-import axios from "axios"
+import Footer from "common/footer";
+import axios from "axios";
 export default {
-   name:"app",
-  components:{
-        Footer,
+  name: "app",
 
-    }
-
-
-}
+};
 </script>
 
 
@@ -29,6 +23,4 @@ export default {
   height:100%;
   
 }
-
-
 </style>

@@ -12,4 +12,4 @@ page:1,
 per_page:20
 })
 
-
+export const getGoodsDetail = (id)=>http(id)("get","/api/yiqituan/ajaxDetail",{item_id:id,type:'global_deal',tid:""})
