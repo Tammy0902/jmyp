@@ -1,6 +1,7 @@
 <template>
     <div class="wrap">
         <Heade/>
+        <div class="kind-con">
          <div class="kind-wrap">
                 <Search/>
                 <Nav/>
@@ -69,14 +70,14 @@
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
-            <div class="snap">
+            <div class="snap" v-for="(item ,index) in logo" :key="index">
                 <div class="snap-con">
                     <a href="javascript:;"></a>
-                    <img src="http://mp5.jmstatic.com//jmstore/image/000/006/6845_std/5d1ad8b8734b6_2048_1024.jpg?1562208329&imageView2/2/w/640/q/90" alt=""/>
+                    <img :src="item.silde_original" alt=""/>
                     <div class="t">9.9包邮</div>
                     <div class="snap-b">
                         <div class="snap-b-l">
-                            <p>黄色小鸭品牌专场</p>
+                            <p>{{item.slide_title}}</p>
                             <p>
                                 <span> 仅剩</span>
                                 <span> 03天</span>
@@ -84,7 +85,7 @@
                                 <span> 41分</span>
                             </p>
                         </div>
-                        <div class="snap-b-r">
+                        <div class="snap-b-r" >
                             <img src="" alt="">
                         </div> 
                     </div>
@@ -92,24 +93,44 @@
         </div>
     </div>
     </div>
+    </div>
 </template>
 
 <script>
-
+import axios from "axios"
 export default {
-    components:{
-       
+    data(){
+        return{
+            msg:"",
+            logo:"",
+        }
+    },
+    created(){
+          axios.get("https://apim.restful.5lux.com.cn/index/index_slider").then((data)=>{
+              console.log(data.data.data)
+                  this.logo = data.data.data;
+          })
+          axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=20").then((data)=>{
+                 this.msg = data.data.data.theirchose;
+          })
     }
    
 }
 </script>
 
 <style scoped>
+.kind-con{
+    width:100%;
+    height:100%;
+    padding:.82rem 0 .96rem 0 ;
+    position:absolute;
+    overflow:auto;
+}
 .kind-wrap{
-    padding:1rem 0 0 0;
+ 
+ 
 }
 .wrap{
-    padding-bottom:0.96rem;
     width:100%;
 }
 .swiper-container{

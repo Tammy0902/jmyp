@@ -1,7 +1,9 @@
 <template>
   <div id="footer">
     <ul>
-      <router-link v-for="(item,index) in tabBar" :key="index" tag="li" :to="item.path">
+      <router-link v-for="(item,index) in tabBar" 
+      :key="index" tag="li" 
+      :to="item.path">
         <i class="iconfont" v-html="item.icon"></i>
         <span>{{item.title}}</span>
       </router-link>
@@ -86,7 +88,7 @@ export default {
   z-index: 1;
   text-align: center;
 }
-.active {
+.router-link-active {
   color: #fe4070;
 }
 </style>

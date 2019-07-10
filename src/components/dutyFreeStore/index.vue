@@ -1,6 +1,7 @@
 <template>
     <div class="wrap">
         <Heade/>
+        <div class="dutyFreeStore-content">
         <div class="dutyFreeStore">
                <Search/>
                 <Nav/>
@@ -13,33 +14,46 @@
             </ul>
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
-        <div class="goods">
-            <img src="" alt="">
+        <div class="goods" v-for="(item,index) in msg" :key="index">
+            <img :src="item.big_thumb" alt="">
             <div class="goods-right">
                 <h5>
-                    号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
+                     {{item.brand_name}}
                 </h5>
-                <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
+                <p><span class="price-one">{{item.market_price}}</span><span class="prive-two">{{item.product_price}}</span></p>
             </div>
         </div>
         </div>
     </div>
-
+</div>
 </template>
 
 <script>
 
+// import {dutyFreeStore} from "api/home.js"
+import axios from "axios"
 export default {
-    components:{
-     
+    data(){
+        return{
+            msg:""
+        }
+    },
+    created(){
+      
     }
    
 }
 </script>
 
 <style scoped>
+.dutyFreeStore-content{
+ padding:.86rem 0 .96rem 0;
+ width:100%;
+ height:100%;
+ position:absolute;
+}
 .dutyFreeStore{
-    padding:1rem 0 0 0 ;
+   
 }
 .wrap{
     padding-bottom:0.96rem;
@@ -119,5 +133,6 @@ export default {
 }
 .goods .goods-right p:nth-child(2) span:nth-child(2){
     font-size:.16rem;
+    text-decoration: line-through;
 }
 </style>
