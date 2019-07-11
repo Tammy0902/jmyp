@@ -1,9 +1,9 @@
 <template>
   <div id="header">
-    <p  @click="backaction">
+    <!-- <p  @click="backaction">
       <i class="iconfont goBack">&#xe605;</i>
-      </p>
-    
+      </p> -->
+    <p @click="handleBack()"><i class="iconfont goBack">{{icon}}</i></p>
     <h3 class="shoppingCart">{{title}}</h3>
     <router-link class="iconfont goHome" to="/home" tag="i">&#xe600;</router-link>
   </div>
@@ -16,14 +16,17 @@ export default {
     title:{
       type:String,
       default:"聚美优品"
+    },
+  icon:{
+      type:String,
+      default:""
     }
   },
   methods:{
-    backAction(){
-        this.$router.back();
-        console.log("back")    
+        handleBack(){
+            this.$router.back();
         }
-  }
+    }
 };
 </script>
 

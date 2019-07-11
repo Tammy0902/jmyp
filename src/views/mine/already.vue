@@ -3,46 +3,67 @@
         <!-- <Heade title="我的聚美" icon="<"/> -->
         <h2>mine</h2>
         <div id="wrapper">
-            <!-- 未登录 -->
-                <div class="in_top ">
+            <!-- 已登录 -->
+                <div class="user">
+                <img src="http://p0.jmstatic.com/jmstore/user/icon/chook_200_200.png?1562373892" alt="" class="photo">
+                <div class="user_bg">
+
                     <div id="headerr">
     
                         <p @click="handleBack()"><i class="iconfont goBack">&#xe605;</i></p>
                         <h3 class="shoppingCart">我的聚美</h3>
                         <router-link class="iconfont goHome" to="/home" tag="i">&#xe661;</router-link>
                     </div>
-                        <div class="headpic "></div>
-                        <div class="operation">
-
-                            <router-link to="signin" tag="button">注册</router-link>
-                            <span>|</span>
-                            <router-link to="login" tag="button">登录</router-link>
+                    <div class="user_info">
+                        <span class="name">{{name}}</span>
+                        <span class="grade">普通会员</span>
+                    </div>
+                </div>
+                <div class="icons">
+                    <a class="wishlist" href="/h/wishdeal/onsale">
+                        <div class="icon">
+                            <img src="./img/refund.png" alt="">
                         </div>
-                </div> 
+                        <span>心愿单</span>
+                    </a>
+                    <a class="onsale" href="/m/subscribe/list">
+                        <div class="icon">
+                            <img src="./img/myfund.png" alt="">
+                        </div>
+                        <span>开售提醒</span>
+                    </a>
+                    <a class="fav" href="/m/favoritebrand/list">
+                        <div class="icon">
+                            <img src="./img//rmaservice.png" alt="">
+                        </div>
+                        <span>收藏</span>
+                    </a>
+                </div>
+            </div>
             
             <div class="order block">
                 <div class="block-title">
                     <i class="block-title-icon myorder iconfont">&#xe600;</i>
                     我的订单
-                    <a href="#/tishi" class="block-title-nav">
+                    <a href="/m/order/list" class="block-title-nav">
                         <span>查看我的全部订单</span>
                         <i class="arrow-right iconfont">&#xe658;</i>
                     </a>
                 </div>
                 <div class="block-content">
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/order/list?status=1">
                         <i class="unpaid iconfont icons-dizhi">&#xe653;</i>
                         <span>待付款</span>
                     </a>
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/order/list?status=2">
                         <i class="unconfirm iconfont">&#xe653;</i>
                         <span>待收货</span>
                     </a>
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/order/list?status=3">
                         <i class="uncomment iconfont">&#xe653;</i>
                         <span>待评价</span>
                     </a>
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/RMA/list">
                         <i class="refund iconfont">&#xe653;</i>
                         <span>退货/退款</span>
                     </a>
@@ -54,36 +75,36 @@
                     我的资产
                 </div>
                 <div class="block-content">
-                        <a class="block-item" href="#/tishi">
+                        <a class="block-item" href="/h/promocard/list">
                         <div class="value"></div>
                         <span>现金券</span>
                     </a>
-                        <a class="block-item" href="#/tishi">
+                        <a class="block-item" href="/h/red_envelope/list">
                         <div class="value"></div>
                         <span>红包</span>
                     </a>
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/account/balance">
                         <div class="value"></div>
                         <span>聚美余额</span>
                     </a>
-                    <a class="block-item" href="#/tishi">
+                    <a class="block-item" href="/m/giftcard/list">
                         <div class="value"></div>
                         <span>礼品卡</span>
                     </a>
                 </div>
             </div>
             <div class="block list">
-                <a class="list-item" href="#/tishi">
+                <a class="list-item" href="/m/RMA/service">
                     <i class="list-item-icon rmaservice iconfont">&#xe653;</i>
                     <span>售后服务</span>
                     <i class="arrow-right"></i>
                 </a>
-                <a class="list-item" href="#/tishi">
+                <a class="list-item" href="/m/feedback/show_add">
                     <i class="list-item-icon feedback iconfont">&#xe653;</i>
                     <span>意见反馈</span>
                     <i class="arrow-right"></i>
                 </a>
-                <a class="list-item" href="#/tishi">
+                <a class="list-item" href="/h/address/index">
                     <i class="list-item-icon address iconfont">&#xe653;</i>
                     <span>收货地址</span>
                     <i class="arrow-right"></i>
@@ -93,18 +114,16 @@
                     <span>退出登录</span>
                     <i class="arrow-right"></i>
                 </a>
-                <a class="list-item" href="tel: #/tishi">
+                <a class="list-item" href="tel: 400-123-8888">
                     <i class="list-item-icon tel iconfont">&#xe653;</i>
                     <span>400-123-8888</span>
                     <i class="arrow-right"></i>
                 </a>
             </div>
-            
             <div class="hint">
                     客服热线400-123-8888 (8:00-22:00)</br>拨打前请记录您的UID  599048968    </div>
         </div>
     </div>
-    
 </template>
 
 <script>
@@ -114,50 +133,24 @@ export default {
         handleBack(){
             this.$router.back();
         }
-        
+    },
+    data(){
+        return{
+            name:"",
+
+        }
+    },
+    created(){
+        let data =  JSON.parse(sessionStorage.getItem('item')) ;
+        this.name=data.username;
+        console.log(data.pwd,222);
     }
 }
 </script>
 
 
  <style>
-.operation {
-    padding: 10px;
-    width: 4rem;
-    margin: auto;
-}
-.headpic{
-    background: url("img/chook_200_200.png") no-repeat center;
-    height: 1rem;
-    width:1rem;
-    margin: 0 auto;
-    border-radius: 50%;
-    /* background-image:#fff;  */
-    color: #fff;
-    background-size: 120%
-}
-.order{
-    margin-top:3.69rem;
-    overflow: hidden; 
-    z-index: 20;
-}
-.operation button{
-    background: transparent;
-    border: 0;
-    color: #fff;
-    font-size: 0.42rem;
-    font-weight:600;
-    
-}
-
- .in_top{
-        color:#fff;
-        position: relative;
-        width: 100%;
-        height: 3.69rem;
-        background-image: -webkit-linear-gradient(294deg,#fd465f 0,#fc5e9f 100%);
-        background-image: linear-gradient(-204deg,#fd465f 0,#fc5e9f 100%);
- }  
+   
 #headerr {
   width: 100%;
   height: 0.82rem;
@@ -279,15 +272,13 @@ export default {
 .block-title-icon{
     font-size: 0.4rem;
 }
-.block-content, .operation{
+.block-content, .operation {
+    width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     justify-content: space-around;
-}
-.block-content{
-    width:100%;
 }
 .block-item {
     width: 25%;

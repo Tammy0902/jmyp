@@ -1,6 +1,6 @@
 <template>
   <div id="shoppingcart">
-    <Heade title="购物车" />
+    <Heade title="购物车" icon="<"/>
     <emptycart />
     <ShopcartBody />
     <Footer />
