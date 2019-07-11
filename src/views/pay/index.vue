@@ -5,26 +5,26 @@
       <div>订单金额</div>
       <div>￥10</div>
     </div>
+    <div class="select_pay">选择支付方式</div>
     <div class="pay-way">
-      <div>选择支付方式</div>
-      <div class="alipay">
+      <div class="alipay" @click="handleChangbg()">
         <i class="iconfont icon-zfb"></i>
         <p>支付宝</p>
-        <span></span>
+        <span :class="flag?'active':''"></span>
       </div>
-      <div class="wetChat">
+      <div class="wetChat" @click="handleChangbg()">
         <i class="iconfont icon-wetchat"></i>
         <p>
           微信支付
           <b>亿万用户的选择，更快更安全</b>
         </p>
-        <span></span>
+        <span :class="mark?'active':''"></span>
       </div>
       <div class="huabei">
         <i class="iconfont icon-huabei"></i>
         <p>
           花呗分期
-          <b>购满150元才可用花呗分期哦~</b>
+          <b>购满1000元才可用花呗分期哦~</b>
         </p>
         <span></span>
       </div>
@@ -36,13 +36,27 @@
         </p>
         <span></span>
       </div>
+      <section class="mask"></section>
     </div>
     <div class="go-pay">去支付</div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      flag:true,
+      mark:false
+    }
+  },
+  methods:{
+    handleChangbg(){
+      this.flag = !this.flag;
+      this.mark = !this.mark;
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -71,8 +85,9 @@ export default {};
 
 .pay-way {
   width: 100%;
-  min-height: 5.48rem;
+  min-height: 4.32rem;
   box-sizing: border-box;
+  position:relative;
 }
 .pay-way .iconfont {
   font-size: 0.6rem;
@@ -85,7 +100,7 @@ export default {};
   height: 1.08rem;
   font-size: 0.32rem;
   background: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #f5f5f5;
   box-sizing: border-box;
   padding: 0 0.3rem;
   display: flex;
@@ -106,6 +121,16 @@ export default {};
   font-size: 0.24rem;
   color: #999;
   line-height: 0.4rem;
+}
+.select_pay {
+  width: 100%;
+  height: 1.08rem;
+  font-size: 0.32rem;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  box-sizing: border-box;
+  padding: 0 0.3rem;
+  line-height:1.08rem;
 }
 
 .go-pay {
@@ -130,5 +155,18 @@ export default {};
 }
 .goods-pay .iconfont {
   color: #f4b00c;
+}
+.active {
+  background: #fe4070;
+}
+.mask{
+  width:100%;
+  height:2.16rem;
+  background:#fff;
+  opacity: 0.6;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:10;
 }
 </style>

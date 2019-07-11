@@ -2,7 +2,7 @@
   <div class="wrap">
     <Loading v-if="loading"></Loading>
     
-      <Heade />
+      <HeaderCom />
       <div class="mom-content">
         <div class="mom">
           <Search />

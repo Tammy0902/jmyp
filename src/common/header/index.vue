@@ -1,18 +1,32 @@
 <template>
   <div class="headerCom">
-    <i class="iconfont goBack">&#xe605;</i>
+    <i class="iconfont goBack" @click="handlegoback()">&#xe605;</i>
     <h3 class="shoppingCart">{{title}}</h3>
-    <i class="iconfont goHome">&#xe600;</i>
+    <i class="iconfont goHome" @click="handlegohome()">&#xe600;</i>
   </div>
 </template>
 
 <script>
 export default {
-  name:"headerCom",
-  props:{
-    title:{
-      type:String,
-      default:"聚美优品"
+  name: "headerCom",
+  name: "shoppingcart",
+  methods: {
+    handlegoback() {
+      if (window.history.length <= 1) {
+        this.$router.push({ path: "/" });
+        return false;
+      } else {
+        this.$router.go(-1);
+      }
+    },
+    handlegohome(){
+      this.$router.push({ path: "/home" });
+    }
+  },
+  props: {
+    title: {
+      type: String,
+      default: "聚美优品"
     }
   }
 };
