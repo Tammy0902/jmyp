@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import {getgroupbuy,gethomeToggle} from "api/groupbuy.js"
-
+import {getgroupbuy,gethomeToggle,i} from "api/groupbuy.js"
+console.log(i)
 import axios from "axios"
 
 export default {
@@ -69,6 +69,8 @@ export default {
         let data = await getgroupbuy();
         this.msg = data.data;
         this.loading = false;
+        let dat = await i();
+        console.log(data.data)
     }
 }
 </script>

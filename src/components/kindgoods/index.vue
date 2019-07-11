@@ -7,18 +7,15 @@
                 <Nav/>
               <Loading v-if="loading"/>
         <div v-if="!loading">
-            <div class="swiper-container" >
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="" alt="">
-                        </div>
+           <!-- <div class="swiper-container" ref="banner">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img :src="img[0]">
                     </div>
+                    <div class="swiper-slide">
+                         <img :src="img[1]">
+                    </div>
+                </div>
             </div>
             <div class="active">
                         <i class="iconfont">&#xe603;</i>
@@ -60,18 +57,18 @@
                         <img src="" alt="">
                 </div>
             </div>
-            <!-- <div class="active">
+            <div class="active">
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
             <div class="snap">
                     <img src="" alt="">
                     <div class="snap-r">广告</div>
-            </div> -->
+            </div> 
             <div class="active">
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
-            </div>
+            </div> -->
             <div class="snap">
                 <div class="snap-con" v-for="(item ,index) in msg" :key="index">
                     <a href="javascript:;"></a>
@@ -101,18 +98,33 @@
 
 <script>
 import {kindgoods} from "api/groupbuy"
-
+import Swiper from "swiper"; 
+import "swiper/dist/css/swiper.min.css";
+console.log(Swiper)
 export default {
     data(){
         return{
             msg:"", 
             loading:true,
+            img:[
+                'http://mp6.jmstatic.com/mobile/card_material/item_562_2048_838-ipad2048_1562753533.jpeg?imageView2/2/w/640/q/90',
+                'http://mp5.jmstatic.com/mobile/card_material/item_562_2048_838-ipad2048_1562753586.jpeg?imageView2/2/w/640/q/90'
+            ],
         }
     },
     async created(){
         let data = await kindgoods();
         this.msg = data.item_list;
        this.loading = false;
+       console.log(data)
+    },
+    mounted(){
+        new Swiper (this.$refs.banner, {
+            loop: true,
+             autoplay:true, 
+            disableOnInteraction: false, 
+            pagination: { el: ".swiper-pagination" }        
+        })
     }
    
 }
@@ -136,16 +148,15 @@ export default {
 .swiper-container{
     width:100%;
     height:3rem;
-    background:red;
 }
 
 .swiper-container > .swiper-slide {
     width: 100%;
-    height: 100%;
+    height: 3rem;
 }
-img {
+ .swiper-slide img {
     width: 100%;
-    height: 4rem;
+    height: 3rem;
 }
 .swiper-pagination{
     position: absolute;

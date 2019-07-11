@@ -14,16 +14,18 @@
             </ul>
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
-        <div class="goods">
-            <img src="" alt="">
+        <Loading v-if="loading"/>
+        <router-link class="goods" v-for="(item,index) in msg" :to="{path:'/goodspage',query:{id:item.item_id}}" v-if ="!loading" :key="index" >
+            <img :src="item.image" alt=""/>
             <div class="goods-right">
                 <h5>
                     号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
                 </h5>
                 <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
             </div>
+</router-link>
         </div>
-        </div>
+       
     </div>
 </div>
 </template>
@@ -40,7 +42,7 @@ export default {
         }
     },
     components:{
-       
+      
     },
     methods:{
       

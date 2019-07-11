@@ -26,29 +26,23 @@ module.exports = {
                 changeOrigin:true,
                 pathRewrite:{
                 "^/abc":""
-            },
+            }
+        },
             "/yiqituan":{
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true,
              },
              "/ajax_new":{
                 target:"http://www.jumeiglobal.com",
-              
-            },
-            
-            "/getlist":{
-                target:"m.zhe800.com.cn",
                 changeOrigin:true,
-                // http://apiv2.pinduoduo.com/api/fiora/subject/goods?subject_id=5576&page=1&size=3
-            //     http://m.zhe800.com.cn/getlist?page=1
             },
             "/jm":{
                 target:"http://s.h5.jumei.com",
                 changOrigin:true,
             },
-       
+            
             }
-        }
+        
     },
     configureWebpack:{
         resolve:{
