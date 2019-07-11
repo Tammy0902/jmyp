@@ -1,6 +1,6 @@
 <template>
     <div id="order">
-        <Heade title="结算中心"/>
+        <HeaderCom title="结算中心"/>
         <OrderAdress/>
         <OrderRreceiptTime/>
         <orderBody/>

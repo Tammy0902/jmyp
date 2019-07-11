@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div class="headerCom">
     <i class="iconfont goBack">&#xe605;</i>
     <h3 class="shoppingCart">{{title}}</h3>
     <router-link class="iconfont goHome" to="/home" tag="i">&#xe600;</router-link>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name:"heade",
+  name:"headerCom",
   props:{
     title:{
       type:String,
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-#header {
+.headerCom {
   width: 100%;
   height: 0.82rem;
   font-size: 0.32rem;
@@ -36,7 +36,7 @@ export default {
   z-index: 1;
 }
 
-#header > .iconfont {
+.headerCom > .iconfont {
   font-size: 0.32rem;
   color: #999;
 }

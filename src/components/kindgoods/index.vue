@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <Heade/>
+        <HeaderCom/>
         <div class="kind-con">
          <div class="kind-wrap">
                 <Search/>

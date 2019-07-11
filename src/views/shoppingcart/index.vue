@@ -1,6 +1,6 @@
 <template>
   <div id="shoppingcart">
-    <Heade title="购物车" />
+    <HeaderCom title="购物车" />
     <emptycart />
     <ShopcartBody />
     <Footer />

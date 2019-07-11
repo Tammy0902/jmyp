@@ -1,6 +1,6 @@
 <template>
   <div id="pay">
-    <Heade title="收银台" />
+    <HeaderCom title="收银台" />
     <div class="order-sum">
       <div>订单金额</div>
       <div>￥10</div>
