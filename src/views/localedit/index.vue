@@ -1,5 +1,5 @@
 <template>
-    <div class="localedit">
+    <div id="localedit">
         <HeaderCom title="地址编辑"/>
         <LocaleditBody/>
         

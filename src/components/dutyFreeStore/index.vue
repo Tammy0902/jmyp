@@ -1,6 +1,7 @@
 <template>
     <div class="wrap">
         <HeaderCom/>
+        <div class="dutyFreeStore-content">
         <div class="dutyFreeStore">
                <Search/>
                 <Nav/>
@@ -24,16 +25,35 @@
         </div>
         </div>
     </div>
-
+</div>
 </template>
 
 <script>
+import {dutyFreeStore} from "api/groupbuy.js"
 
 export default {
+    data(){
+        return{
+            msg:"",
+            flag:true,
+            loading:true,
+        }
+    },
     components:{
-     
+       
+    },
+    methods:{
+      
+    },
+    async created(){
+        let data = await dutyFreeStore();
+        this.msg = data.data;
+        console.log(data)
+        if(data){
+             this.loading = false;
+        }
+      
     }
-   
 }
 </script>
 

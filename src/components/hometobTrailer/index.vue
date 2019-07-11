@@ -2,82 +2,81 @@
     <div class="hometobTrailer">
         <Search/>
         <Nav/>
+        
           <div class="goods-con">
-        <div class="con">
-            <router-link class="title-a  " to="/home/hometobTrailer" tag="div">
+       
+        <div class="con"> 
+            <div class="title-a  "  @click ="handleToggle" :class="flag?'color':''">
                 今日十点上新
-            </router-link>
-            <router-link class="title-b " to="/home/hometobnew" tag="div">
+            </div>
+            <div class="title-b "  @click ="handleToggle"  :class="!flag?'color':''">
                 明日十点预告
-            </router-link>
+            </div>
         </div>
         </div>
-        <router-link class="goods" to="/goodspage" tag="div"> 
-                <img src="" alt="">
+        <Loading v-if="loading"></loading>
+           <router-link class="goods" v-for="(item,index) in msg" :key="index"  :to="{path:'/details',query:{id:index}}">
+                <img :src="item.image" alt="">
                 <div class="goods-right">
+                    
                     <h5>
-                        号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
+                        {{item.medium_name}}
                     </h5>
-                    <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
-                    <p>评论</p>
-                </div>
+                    <p><span class="price-one">{{item.jumei_price}}</span></p>
+                    <p>{{item.buyer_number_text}}</p>
+             </div>
         </router-link>
-            <div class="goods">
-                <img src="" alt="">
-                <div class="goods-right">
-                    <h5>
-                        号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
-                    </h5>
-                    <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
-                    <p>评论</p>
-                </div>
-            </div>
-            <div class="goods">
-                <img src="" alt="">
-                <div class="goods-right">
-                    <h5>
-                        号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
-                    </h5>
-                    <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
-                    <p>评论</p>
-                </div>
-            </div>
-            <div class="goods">
-                <img src="" alt="">
-                <div class="goods-right">
-                    <h5>
-                        号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
-                    </h5>
-                    <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
-                    <p>评论</p>
-                </div>
-            </div>
-            <div class="goods">
-                <img src="" alt="">
-                <div class="goods-right">
-                    <h5>
-                        号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
-                    </h5>
-                    <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
-                    <p>评论</p>
-                </div>
-            </div>
     </div>
+    
+
 </template>
 
 <script>
-import {home} from "api/home";
+import {getgroupbuy,gethomeToggle} from "api/groupbuy.js"
+
+import axios from "axios"
+
 export default {
-    //  async created(){
-    //      let data = await home();
-    //      console.log(data);
-         
-    //  } 
+    data(){
+        return{
+            msg:"",
+            flag:true,
+            loading: true,
+        }
+    },
+    components:{
+       
+    },
+    methods:{
+        async  handleToggle(){
+            this.loading = true;
+            this.flag = !this.flag;
+            if(this.flag == false){
+             
+                let data = await gethomeToggle();
+                this.loading = false;
+                this.msg = data.data;
+            }
+               if(this.flag == true){
+                  
+                let data = await getgroupbuy();
+                this.loading = false;
+                this.msg = data.data;
+            }
+        }
+    },
+    async created(){
+        let data = await getgroupbuy();
+        this.msg = data.data;
+        this.loading = false;
+    }
 }
 </script>
 
 <style scoped>
-
+.color{
+  color:pink;
+}
 .goods-con{
     width:100%;
     height:100%;
@@ -95,9 +94,7 @@ export default {
     text-align: center;
     line-height:.86rem;
 }
-.con .router-link-active{
-    color:pink;
-}
+
 .con .title-b {
     width:50%;
     height:.86rem;
@@ -130,7 +127,11 @@ export default {
     width:65%;
 }
 .goods .goods-right p:nth-child(2){
-    margin-top: 0.38rem ;
+    margin-top: 0.18rem ;
+   margin-bottom:0.1rem;
+}
+.goods .goods-right p:nth-child(3){
+    margin-top: 0.1rem ;
    margin-bottom:0.1rem;
 }
 .goods .goods-right p:nth-child(2) span:nth-child(1){
@@ -139,5 +140,6 @@ export default {
 }
 .goods .goods-right p:nth-child(2) span:nth-child(2){
     font-size:.10rem;
+    text-decoration:line-through;
 }
 </style>

@@ -12,6 +12,8 @@ module.exports = {
                     "^/test":""
                 }
             },
+           
+          
             "/api":{
                 target:"https://s.h5.jumei.com",
                 changOrigin:true,
@@ -20,7 +22,6 @@ module.exports = {
                 }
             },
             "/abc":{
-                      //https://m.douyu.com/api/cate/recList?cid=&ct=
                 target:"https://m.douyu.com",
                 changeOrigin:true,
                 pathRewrite:{
@@ -29,18 +30,13 @@ module.exports = {
             "/yiqituan":{
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true,
-              
+             },
+             "/ajax_new":{
+                target:"http://www.jumeiglobal.com",
+                changOrigin:true,
             },
-            // "/api":{
-            //     target:"https://s.h5.jumei.com",
-            //     changOrigin:true,
-            //     pathRewrite:{
-            //         "^/api":""
-            //     }
-            // },
-            // http://s.h5.jumei.com/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20
-          
-        }
+       
+            }
         }
     },
     configureWebpack:{
@@ -54,7 +50,7 @@ module.exports = {
             "store":path.resolve(__dirname,"./src/store"),
             "utils":path.resolve(__dirname,"./src/utils"),
             "views":path.resolve(__dirname,"./src/views"),
-        }
+            }
         }
     }
 }
