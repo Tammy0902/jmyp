@@ -73,12 +73,14 @@
 import {mapState,mapMutations,mapGetters} from "vuex"
 
 
+
 export default {    
   name: "shopcartBody",
   computed:{
       ...mapState({
           goods:state=>state.cart.goods,
-          selectedAll:state=>state.cart.selectedAll        
+          selectedAll:state=>state.cart.selectedAll,
+          goodsId:state=>state.cart.goodsId       
       }),
       ...mapGetters({
           count:"cart/count"
@@ -96,6 +98,7 @@ export default {
 
       })
   }
+  
  
 };
 </script>

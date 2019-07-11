@@ -2,7 +2,6 @@
   <div class="goodspageBody">
     <div class="goodsPice">
       <img :src="goodsimg" />
-      <!-- <img :src="getGoodsDetail.image_url_set.single.url[480]" /> -->
     </div>
     <div class="goods_info">
       <div class="price_info">
@@ -72,11 +71,22 @@ import{getGoodsDetail} from "api/groupbuy"
 export default {
   name: "goodspageBody",
   async created(){
+    // if(sessionStorage.getItem("getGoodsDetail")){
+    //   this.getGoodsDetail = JSON.parse(sessionStorage.getItem("getGoodsDetail"));
+    // }else{
         let {id} = this.$route.query;    
         let data = await getGoodsDetail(id);
+    //     if(data){
+    //       this.loadingFlag = false;
+    //     }else{
+    //       this.loadingFlag = true;
+    //     }
+    // }
+        
         this.getGoodsDetail = data.data;
         this.share_info =  data.data.share_info[1].text;
-        this.goodsimg = data.data.size[0].img;            
+        this.goodsimg = data.data.size[0].img; 
+        // sessionStorage.setItem("getGoodsDetail",json.stringify(data.data))           
   },
   data(){
     return{

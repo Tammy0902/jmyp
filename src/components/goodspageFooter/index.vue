@@ -2,10 +2,10 @@
   <div class="go-buy">
     <div class="store_nav">
       <ul>
-        <li>
+        <router-link tag="li" to="/home"> 
           <i class="iconfont icon-store"></i>
           <span>店铺</span>
-        </li>
+        </router-link>
 
         <router-link tag="li" to="/shoppingCart">
           <i class="iconfont icon-bag">
@@ -15,7 +15,7 @@
         </router-link>
       </ul>
     </div>
-    <div class="addCart" @click="handleAddCart()">加入购物车</div>
+    <div class="addCart" @click="handleAddCart(id)">加入购物车</div>
     <router-link class="go-payment" tag="div" to="/order">去购买</router-link>
   </div>
 </template>
@@ -23,12 +23,16 @@
 <script>
 import {mapMutations,mapState} from "vuex";
 
-
 export default {
   name: "goodspageFooter",
   created() {
-    
-  }, 
+    this.id = this.$route.query.id;
+  },   
+  data(){
+    return{
+      id:"",
+    }
+  },
   computed:{
     ...mapState({
       num:state=>state.goodspage.num
@@ -40,7 +44,8 @@ export default {
   // },
 methods: {
     ...mapMutations({        
-      handleAddCart:"goodspage/handleAddCart"
+      handleAddCart:"goodspage/handleAddCart",
+      handlegoCart:"goodspage/handlegoCart"
     })
   }
 };

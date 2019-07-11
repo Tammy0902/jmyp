@@ -12,7 +12,7 @@ import GoodspageBody from "components/goodspageBody";
 
 export default {
   name: "goodspage",
-  prpos:["id"],
+  prpos:["id"],  
   components: {
     GoodspageBody,
     GoodspageFooter
