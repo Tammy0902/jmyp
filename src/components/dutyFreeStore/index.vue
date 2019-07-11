@@ -15,7 +15,7 @@
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
         <Loading v-if="loading"/>
-        <router-link class="goods" v-for="(item,index) in msg" :to="{path:'/details',query:{id:index}}" v-if ="!loading" :key="index" >
+        <router-link class="goods" v-for="(item,index) in msg" :to="{path:'/goodspage',query:{id:item.item_id}}" v-if ="!loading" :key="index" >
             <img :src="item.image" alt="">
             <div class="goods-right">
                 <h5>
@@ -26,6 +26,7 @@
         </router-link>
         </div>
     </div>
+
 </div>
 </template>
 
@@ -43,7 +44,7 @@ export default {
         }
     },
     components:{
-       
+      
     },
     methods:{
       

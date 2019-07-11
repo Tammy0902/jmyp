@@ -13,6 +13,7 @@ module.exports = {
                 }
             },
             // http://h5.jumei.com/luxury/ajaxList?page=1&card_id=1837
+              // http://s.h5.jumei.com/yiqituan/ajaxDetail?item_id=ht190711p3359280t4&type=global_deal&tid=
           
             "/api":{
                 target:"https://s.h5.jumei.com",
@@ -35,7 +36,7 @@ module.exports = {
                 target:"http://www.jumeiglobal.com",
                 changOrigin:true,
             },
-       
+            
             }
         }
     },

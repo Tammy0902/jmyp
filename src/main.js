@@ -5,6 +5,10 @@ import store from './store'
 import "common";
 // import "./mock";
 
+Vue.filter("ren", function(value) {
+      return value.replace("人参与","")
+  
+})
 
 Vue.config.productionTip = false
 

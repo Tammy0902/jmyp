@@ -3,84 +3,16 @@
         <div class="search">
             <div class="head">
                 <router-link to="/searchList" tag="input" ></router-link>
-                <router-link to="/home" tag="span" >返回</router-link>
+                <router-link to="/home" tag="span" @click="back">返回</router-link>
             </div>
             <ul class="search-list">
-                <li class="search-link">
-                    <span>面部护肤</span><i></i>
-                    <ul class="search-sub-1">
-                        <li>面部护肤11</li>
-                        <li>面部护肤</li>
-                        <li>面部护肤</li>
-                        <li>面部护肤</li>
-                        <li>面部护肤</li>
-                        <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>彩妆</span><i></i>
-                    <ul class="search-sub-2">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>香水</span><i></i>
-                    <ul class="search-sub-3">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>男士护理</span><i></i>
-                    <ul class="search-sub-4">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>套装礼盒</span><i></i>
-                    <ul class="search-sub-5">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>美容工具</span><i></i>
-                    <ul class="search-sub-6">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                    </ul>
-                </li>
-                <li>
-                    <span>其他</span><i></i>
-                    <ul class="search-sub-7">
-                            <li>面部护肤11</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
-                            <li>面部护肤</li>
+                <li v-for="(item,index) in msg"  @click="show(index)">
+                    <span>{{item.name}}</span><i></i>
+                    <ul  :class="i == index ? '':'a' " >
+                        <li v-for="(y,x) in item.sub_categories">
+                           {{y.name}}
+                        </li>
+                     
                     </ul>
                 </li>
             </ul>
@@ -90,35 +22,46 @@
 </template>
 
 <script>
-
+import data from "../../../public/json/search.json";
 export default {
     data(){
         return{
             msg:"",
+            i:-1,
+            j:0,
         }
     },
     components:{
        
     },
     methods:{
-      
+      back(){
+            this.$router.go(-1);//返回上一层
+        },
+        show(index){
+            this.i = index;
+        }
     },
      created(){
-   
+        this.msg = data.data;
+        console.log(data)
     }
 }
 </script>
 
 <style scoped>
+#id{
+    display:none;
+}
 .wrap{
     width:100%;
-    background:#7f7f7f;
+
     height:100%;
     display:flex;
     justify-content:flex-end;
 }
 .search{
-    width:80%;
+    width:100%;
     background:white;
     height:100%;
     overflow: hidden;
@@ -127,11 +70,12 @@ export default {
     height:8%;
     display:flex;
     align-items:center;
+    justify-content:center;
 }
 .head input{
-    width:4.4rem;
+    width:70%;
     height:0.6rem;
-    margin-left:0.2rem;
+    margin-right:1rem;
     border-radius:0.2rem;
     margin:.1rem 0 .1rem 0;
     background:#f0e9e9;
@@ -150,7 +94,7 @@ export default {
     overflow-y: auto;
     flex-wrap:no-wrap ;
     align-items:center;
-    border:1px solid #eeeeee;
+    border-bottom:1px solid #eeeeee;
     flex-direction: column;
     line-height:1.21rem;
 }
@@ -165,27 +109,10 @@ export default {
     text-align:center;
     box-sizing:border-box;
     flex:0 0 auto;
+    border-left:none;
 } 
 
-.search-sub-1{
-    display:none;
-}
-.search-sub-2{
-    display:none;
-}
-.search-sub-3{
-    display:none;
-}
-.search-sub-4{
-    display:none;
-}
-.search-sub-5{
-    display:none;
-}
-.search-sub-6{
-    display:none;
-}
-.search-sub-7{
+.a{
     display:none;
 }
 </style>

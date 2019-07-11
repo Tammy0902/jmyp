@@ -13,7 +13,7 @@
               <span>今日团购,每天10点上新</span>
             </div>
             <div class="ad">
-              <img src alt />
+           <img src="http://mp6.jmstatic.com/mobile/card_material/item_7710_2048_1024-ipad2048_1555472791.jpeg?imageView2/2/w/640/q/90" alt="">
               <div class="right">
                 <div class="title">
                   <p>
@@ -41,14 +41,14 @@
               </div>
               <div class="nav-list">
                 <div>
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
-                  <img src alt />
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1502086238.jpeg?imageView2/2/w/160/q/90" alt="">
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1560910791.jpeg?imageView2/2/w/160/q/90" alt />
+                  <img src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90" alt />
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1551235310.jpeg?imageView2/2/w/160/q/90" alt />
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548056454.jpeg?imageView2/2/w/160/q/90" alt />
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498543566.jpeg?imageView2/2/w/160/q/90" alt="">
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055217.png?imageView2/2/w/160/q/90" alt />
+                  <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498559288.jpeg?imageView2/2/w/160/q/90" alt />
                 </div>
               </div>
             </div>
@@ -58,12 +58,12 @@
                 <span>全球热销品牌</span>
               </div>
               <div class="recommend-list">
-                <img src alt />
-                <img src alt />
-                <img src alt />
-                <img src alt />
-                <img src alt />
-                <img src alt />
+                <img src="http://mp6.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562303982.jpeg?imageView2/2/w/320/q/90" alt />
+                <img src="http://mp5.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562300477.jpeg?imageView2/2/w/320/q/90" alt />
+                <img src="http://mp5.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562641832.jpeg?imageView2/2/w/320/q/90" alt="">
+                <img src="http://mp5.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562313555.jpeg?imageView2/2/w/320/q/90" alt />
+              <img src="http://mp5.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562312705.jpeg?imageView2/2/w/320/q/90" alt="">
+                <img src="http://mp4.jmstatic.com/mobile/card_material/item_5640_1024_1024-ipad2048_1562306484.jpeg@base@tag=imgScale&w=320&q=90" alt />
               </div>
             </div>
 
@@ -124,6 +124,7 @@ export default {
   padding: 0.86rem 0 0.96rem 0;
 }
 .mom {
+
 }
 .router-link-active {
   color: pink;
