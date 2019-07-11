@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Heade title="个人中心"/>
+        <HeaderCom title="个人中心"/>
         <h2>mine</h2>
     </div>
 </template>

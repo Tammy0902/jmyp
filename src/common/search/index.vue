@@ -1,6 +1,6 @@
 <template>
      <div class="head">
-         <router-link to="/searchList" tag="input" ></router-link>
+        <input type="text"/>
         <router-link to="/search" tag="span" class="iconfont">&#xe65c;</router-link>
         <!-- <span class="iconfont">&#xe65c;</span> -->
         <!-- <router-view></router-view> -->
@@ -22,13 +22,11 @@ export default {
     align-items:center;
 }
 .head input{
-    width:75%;
+    width:6rem;
     height:0.6rem;
     margin:0.3rem;
-    margin-left:0.5rem;
     border-radius:0.3rem;
     background:#f5f5f5;
-    border:none;
 }
 .head span{
     margin-left:0.2rem;

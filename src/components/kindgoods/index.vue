@@ -1,13 +1,10 @@
 <template>
     <div class="wrap">
-        <Heade/>
-        <div class="kind-con">
+        <HeaderCom/>
          <div class="kind-wrap">
                 <Search/>
                 <Nav/>
-              <Loading v-if="loading"/>
-        <div v-if="!loading">
-            <div class="swiper-container" >
+            <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="" alt="">
@@ -72,25 +69,14 @@
                     <i class="iconfont">&#xe603;</i>
                     <span>疯抢商场早十点半</span>
             </div>
-<<<<<<< HEAD
-            <div class="snap" v-for="(item ,index) in logo" :key="index">
+            <div class="snap">
                 <div class="snap-con">
                     <a href="javascript:;"></a>
-                    <img :src="item.silde_original" alt=""/>
+                    <img src="http://mp5.jmstatic.com//jmstore/image/000/006/6845_std/5d1ad8b8734b6_2048_1024.jpg?1562208329&imageView2/2/w/640/q/90" alt=""/>
                     <div class="t">9.9包邮</div>
                     <div class="snap-b">
                         <div class="snap-b-l">
-                            <p>{{item.slide_title}}</p>
-=======
-            <div class="snap">
-                <div class="snap-con" v-for="(item ,index) in msg" :key="index">
-                    <a href="javascript:;"></a>
-                    <img :src="item.image_url_set.main[320]" alt=""/>
-                    <div class="t">{{item.discount_string}}</div>
-                    <div class="snap-b">
-                        <div class="snap-b-l">
-                            <p>{{item.title}}</p>
->>>>>>> hehuilin
+                            <p>黄色小鸭品牌专场</p>
                             <p>
                                 <span> 仅剩</span>
                                 <span> 03天</span>
@@ -98,76 +84,32 @@
                                 <span> 41分</span>
                             </p>
                         </div>
-                        <div class="snap-b-r" >
-<<<<<<< HEAD
+                        <div class="snap-b-r">
                             <img src="" alt="">
-=======
-                            <img  :src="item.image_url_set.brand[320]" alt="">
->>>>>>> hehuilin
                         </div> 
                     </div>
                 </div>
         </div>
     </div>
     </div>
-    </div>
-<<<<<<< HEAD
 </template>
 
 <script>
-import axios from "axios"
-export default {
-    data(){
-        return{
-            msg:"",
-            logo:"",
-        }
-    },
-    created(){
-          axios.get("https://apim.restful.5lux.com.cn/index/index_slider").then((data)=>{
-              console.log(data.data.data)
-                  this.logo = data.data.data;
-          })
-          axios.get("https://apim.restful.5lux.com.cn/shop/theirchose?page=20").then((data)=>{
-                 this.msg = data.data.data.theirchose;
-          })
-=======
-</div>
-</template>
-
-<script>
-import {kindgoods} from "api/groupbuy"
 
 export default {
-    data(){
-        return{
-            msg:"", 
-            loading:true,
-        }
-    },
-    async created(){
-        let data = await kindgoods();
-        this.msg = data.item_list;
-       this.loading = false;
->>>>>>> hehuilin
+    components:{
+       
     }
    
 }
 </script>
 
 <style scoped>
-.kind-con{
-    width:100%;
-    height:100%;
-    padding:.82rem 0 .96rem 0 ;
-    position:absolute;
-    overflow:auto;
-}
 .kind-wrap{
- 
- 
+    padding:1rem 0 0 0;
 }
 .wrap{
+    padding-bottom:0.96rem;
     width:100%;
 }
 .swiper-container{
@@ -212,7 +154,7 @@ img {
 }
 .ad .right{
     width:70%;
-    padding-left:.3rem;
+    padding:.3rem;
     box-sizing: border-box;
 }
 
@@ -239,10 +181,9 @@ img {
     line-height:.4rem;
     border-radius: .2rem;
     color:#eb4269;
-    margin-right:.3rem;
 }
 .ad>.right>.title{
-    margin-bottom:.8rem;
+    margin-bottom:.7rem;
 }
 
 

@@ -12,12 +12,6 @@ module.exports = {
                     "^/test":""
                 }
             },
-<<<<<<< HEAD
-         
-=======
-            // http://h5.jumei.com/luxury/ajaxList?page=1&card_id=1837
-          
->>>>>>> hehuilin
             "/api":{
                 target:"https://s.h5.jumei.com",
                 changOrigin:true,
@@ -26,6 +20,7 @@ module.exports = {
                 }
             },
             "/abc":{
+                      //https://m.douyu.com/api/cate/recList?cid=&ct=
                 target:"https://m.douyu.com",
                 changeOrigin:true,
                 pathRewrite:{
@@ -34,13 +29,18 @@ module.exports = {
             "/yiqituan":{
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true,
-             },
-             "/ajax_new":{
-                target:"http://www.jumeiglobal.com",
-                changOrigin:true,
+              
             },
-       
-            }
+            // "/api":{
+            //     target:"https://s.h5.jumei.com",
+            //     changOrigin:true,
+            //     pathRewrite:{
+            //         "^/api":""
+            //     }
+            // },
+            // http://s.h5.jumei.com/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20
+          
+        }
         }
     },
     configureWebpack:{

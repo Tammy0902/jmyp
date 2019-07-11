@@ -3,7 +3,7 @@
     <i class="iconfont icon-location"></i>
     <div class="adress-msg">
       <p>收货人：*y 13455678903</p>
-      <p>地址:广东省-深圳市-宝安区 深圳西部硅谷</p>
+      <p>地址:广东省-深圳市-福田区 车公庙</p>
     </div>
     <i class="iconfont icon-right"></i>
   </div>

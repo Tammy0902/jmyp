@@ -1,7 +1,6 @@
 <template>
     <div class="wrap">
-        <Heade/>
-        <div class="dutyFreeStore-content">
+        <HeaderCom/>
         <div class="dutyFreeStore">
                <Search/>
                 <Nav/>
@@ -14,85 +13,33 @@
             </ul>
         </div>
         <div class="active"><i class="iconfont">&#xe603;</i><span>今日团购,每天10点上新</span></div>
-<<<<<<< HEAD
-        <div class="goods" v-for="(item,index) in msg" :key="index">
-            <img :src="item.big_thumb" alt="">
+        <div class="goods">
+            <img src="" alt="">
             <div class="goods-right">
                 <h5>
-                     {{item.brand_name}}
-=======
-        <Loading v-if="loading"/>
-        <router-link class="goods" v-for="(item,index) in msg" :to="{path:'/details',query:{id:index}}" v-if ="!loading" :key="index" >
-            <img :src="item.image" alt="">
-            <div class="goods-right">
-                <h5>
-                     {{item.medium_name}}
->>>>>>> hehuilin
+                    号发射的九发生纠纷拉客司佛挡杀佛萨芬的说法凡是打发法撒旦
                 </h5>
-                <p><span class="price-one">{{item.market_price}}</span><span class="prive-two">{{item.product_price}}</span></p>
+                <p><span class="price-one">$122</span><span class="prive-two">$122</span></p>
             </div>
-        </router-link>
+        </div>
         </div>
     </div>
-</div>
+
 </template>
 
 <script>
 
-<<<<<<< HEAD
-// import {dutyFreeStore} from "api/home.js"
-import axios from "axios"
 export default {
-    data(){
-        return{
-            msg:""
-        }
-    },
-    created(){
-=======
-
-import {dutyFreeStore} from "api/groupbuy.js"
-
-export default {
-    data(){
-        return{
-            msg:"",
-            flag:true,
-            loading:true,
-        }
-    },
     components:{
-       
-    },
-    methods:{
-      
-    },
-    async created(){
-        let data = await dutyFreeStore();
-        this.msg = data.data;
-        console.log(data)
-        if(data){
-             this.loading = false;
-        }
->>>>>>> hehuilin
-      
+     
     }
+   
 }
 </script>
 
 <style scoped>
-.dutyFreeStore-content{
- padding:.86rem 0 .96rem 0;
- width:100%;
- height:100%;
- position:absolute;
-}
 .dutyFreeStore{
-<<<<<<< HEAD
-   
-=======
-   padding-bottom:0.96rem;
->>>>>>> hehuilin
+    padding:1rem 0 0 0 ;
 }
 .wrap{
     padding-bottom:0.96rem;
@@ -172,6 +119,5 @@ export default {
 }
 .goods .goods-right p:nth-child(2) span:nth-child(2){
     font-size:.16rem;
-    text-decoration: line-through;
 }
 </style>
