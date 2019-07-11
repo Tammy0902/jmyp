@@ -6,6 +6,7 @@ import "common";
 // import "./mock";
 
 
+
 Vue.config.productionTip = false
 
 new Vue({

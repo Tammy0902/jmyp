@@ -12,13 +12,24 @@ import detail from "./detail"
 import order from "./order"
 import search from "./search"
 import goodspage from "./goodspage"
+// import searchList from "./searchList"
+import tishi from "./tishi"
+import login from "./login"
+import signin from "./signin"
+import already from "./already"
 
-export default new Router({
+
+
+const router=new Router({
   routes: [
     {
-      path:"/",
-      redirect:"/home"
-    },    
+      path: "/",
+      redirect: "/home"
+    },
+    login,
+    tishi,
+    signin,
+    already,
     home,
     groupbuying,
     shoppingcart,
@@ -28,7 +39,23 @@ export default new Router({
     order,
     detail,
     search,
-    goodspage
+    goodspage,
+    
 
   ]
 })
+
+// router.beforeEach((to,from,next)=>{
+    
+//   if( to.path =="/login" || to.meta.AuthToken ){
+    
+//       next();
+//       console.log(111)
+//   }else{
+//       //跳转的路径:(路由跳转)
+//       next("/login") 
+//       console.log(222)
+//   }
+  
+// })
+export default router;

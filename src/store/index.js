@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import groupbuy from './groupbuy/index'
 import cart from './cart'
 import goodspage from './goodspage'
+import mine from './mine'
+
 Vue.use(Vuex)
 
 const state = {}
@@ -21,7 +23,8 @@ const store = new Vuex.Store({
     modules:{
         groupbuy,
         cart,
-        goodspage
+        goodspage,
+        mine
     }
 })
 

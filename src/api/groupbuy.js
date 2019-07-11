@@ -6,7 +6,6 @@ export const getgroupbuybady=()=>http("get","/api/yiqituan/tab_list",{tab:'coutu
 export const getgroupbuyall=(tabb)=>http("get","/api/yiqituan/tab_list",{tab:tabb,page:1,per_page:20})
 export const getgroupDetailData=(id)=>http("get","/api/yiqituan/ajaxDetail",{item_id:id,type:'global_deal',tid:""})
 
-
 //home
 export const gethomeToggle=()=>http("get","api/yiqituan/tab_list",{tab:'coutuan_ladies',page:1,per_page:20})
 //dutyFreeStore

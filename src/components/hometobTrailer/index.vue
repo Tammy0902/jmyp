@@ -94,7 +94,6 @@ export default {
     text-align: center;
     line-height:.86rem;
 }
-
 .con .title-b {
     width:50%;
     height:.86rem;

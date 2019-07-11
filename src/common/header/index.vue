@@ -13,6 +13,10 @@ export default {
     title:{
       type:String,
       default:"聚美优品"
+    },
+  icon:{
+      type:String,
+      default:""
     }
   }
 };
