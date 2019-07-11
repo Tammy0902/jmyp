@@ -15,7 +15,7 @@
         </div>
         </div>
         <Loading v-if="loading"></loading>
-           <router-link class="goods" v-for="(item,index) in msg" :key="index"  :to="{path:'/details',query:{id:index}}">
+           <router-link class="goods" v-for="(item,index) in msg" :key="index"  :to="{path:'/goodspage',query:{id:item.item_id}}">
                 <img :src="item.image" alt="">
                 <div class="goods-right">
                     

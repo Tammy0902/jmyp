@@ -6,22 +6,43 @@
           <i class="iconfont icon-store"></i>
           <span>店铺</span>
         </li>
-        <li>
+
+        <router-link tag="li" to="/shoppingCart">
           <i class="iconfont icon-bag">
-            <span class="num_sup">0</span>
+            <span class="num_sup">{{num}}</span>
           </i>
           <span>购物车</span>
-        </li>
+        </router-link>
       </ul>
     </div>
-    <div class="addCart">加入购物车</div>
+    <div class="addCart" @click="handleAddCart()">加入购物车</div>
     <router-link class="go-payment" tag="div" to="/order">去购买</router-link>
   </div>
 </template>
 
 <script>
+import {mapMutations,mapState} from "vuex";
+
+
 export default {
-  name: "goodspageFooter"
+  name: "goodspageFooter",
+  created() {
+    
+  }, 
+  computed:{
+    ...mapState({
+      num:state=>state.goodspage.num
+      
+    })
+  },
+  // components: {
+  //   ShopcartBody
+  // },
+methods: {
+    ...mapMutations({        
+      handleAddCart:"goodspage/handleAddCart"
+    })
+  }
 };
 </script>
 
@@ -36,7 +57,7 @@ export default {
   bottom: 0;
   text-align: center;
   font-size: 0.32rem;
-  background:#fff;
+  background: #fff;
 }
 .go-buy .iconfont {
   font-size: 0.5rem;

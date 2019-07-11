@@ -16,3 +16,5 @@ export const mom =()=>http("get","api/muandbaby/ajaxList",{page:1,card_id:7430})
 //kindgoods
 export const kindgoods =()=>http("get","/test/luxury/ajaxList",{page:1,card_id:1837})
 //search
+
+export const getGoodsDetail =(id)=>http("get","/api/yiqituan/ajaxDetail",{item_id:id,type:"global_deal",tid:""})

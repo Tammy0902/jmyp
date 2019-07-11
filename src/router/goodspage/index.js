@@ -1,5 +1,5 @@
 export default{
-    path:"/goodspage/id:",
+    path:"/goodspage",
     component:()=>import("views/goodspage"),
     props:true,
     name:"goodspage"

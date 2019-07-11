@@ -1,22 +1,23 @@
 <template>
   <div class="goodspageBody">
     <div class="goodsPice">
-      <img src />
+      <img :src="goodsimg" />
+      <!-- <img :src="getGoodsDetail.image_url_set.single.url[480]" /> -->
     </div>
     <div class="goods_info">
       <div class="price_info">
         <div>
           <span class="price_now">{{getGoodsDetail.group_jumei_price}}</span>
-          <span class="price_origin">{{getGoodsDetail.group_market_price}}</span>
+          <span class="price_origin">{{getGoodsDetail.group_single_price}}</span>
         </div>
         <span class="buy_num">
-          <strong>{{}}</strong>人已购买
+          <strong>{{getGoodsDetail.buyer_number_text}}</strong>购买
         </span>
       </div>
-      <div class="goods_Title">JMsolution 蜂蜜面膜 10片/盒 网红面膜 莹润补水</div>
+      <div class="goods_Title">{{share_info}}</div>
       <div class="shipping_address">
         <span>地址</span>
-        <p>至 深圳市福田区车公庙</p>
+        <p>至 北京市-市辖区-东城区</p>
       </div>
       <div class="additional">
         <span>运费</span>
@@ -33,10 +34,19 @@
     <div class="goods_params">
       <div>商品参数</div>
       <ul>
-        <li v-for="(item,index) in info" :key="index">
-          <span>{{item.title}}</span>
-          <p>{{item.msg}}</p>
+        <li>
+          <span>商品名称</span>
+          <p>{{share_info}}</p>
         </li>
+         <li>
+          <span>品牌</span>
+          <p>{{getGoodsDetail.name}}</p>
+        </li>   
+        <li>
+          <span>规格</span>
+          <p></p>
+        </li>
+
       </ul>
     </div>
     <div class="user_evaluate">
@@ -57,27 +67,22 @@
 </template>
 
 <script>
-import{getGoodsDetail} from "api/home"
+import{getGoodsDetail} from "api/groupbuy"
+
 export default {
   name: "goodspageBody",
   async created(){
-         let data = await getGoodsDetail(id);
-         console.log(data);  
-         this.getGoodsDetail = data.data.recommend_data      
+        let {id} = this.$route.query;    
+        let data = await getGoodsDetail(id);
+        this.getGoodsDetail = data.data;
+        this.share_info =  data.data.share_info[1].text;
+        this.goodsimg = data.data.size[0].img;            
   },
   data(){
     return{
       getGoodsDetail:{},
-      info: [
-        { title: "商品名称", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "品牌", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "出雾时间", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "功效", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "功率", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "适用对象", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "喷雾类型", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
-        { title: "颜色分类", msg: "BEPERFECT 小巨蛋热喷蒸脸器" }
-      ]
+      goodsimg:'',
+      share_info:'', 
     }
   }
  
@@ -191,6 +196,12 @@ export default {
 .goods_params>ul>li>span {
   color: #999;
   width:1.6rem;
+}
+.goods_params>ul>li>p{
+  width:80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .user_evaluate{
     width:100%;
