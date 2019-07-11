@@ -86,9 +86,9 @@ const getters = {
     count(state){
         let goodsNum = 0 ,goodsPrice = 0;
         for(var i = 0; i<state.goods.length;i++){
-            if(state.goods[i].flag){
-                goodsNum += state.goods[i].num;
-                goodsPrice +=((state.goods[i].price)*100*state.goods[i].num)
+            if(state.goods[i].flag){                
+                goodsNum += state.goods[i].num;              
+                goodsPrice +=(Math.ceil((state.goods[i].price*100))*state.goods[i].num)                                
             }
         }
         var goodsPriceTal = (goodsPrice/100)
@@ -98,7 +98,7 @@ const getters = {
             var signs = false;
         }else if(goodsPriceTal>=0 && goodsPriceTal<150){
             var signs = true;
-            var postage = (nopostage*10000 - (goodsPriceTal*10000))/10000;          
+            var postage = (nopostage*100 - (goodsPriceTal*100))/100;          
         }
         
         return{
