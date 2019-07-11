@@ -9,20 +9,15 @@
 <script>
 import GoodspageFooter from "components/goodspageFooter";
 import GoodspageBody from "components/goodspageBody";
-import{getGoodsDetail} from "api/home"
+
 export default {
   name: "goodspage",
-  // prpos:["id"],
+  prpos:["id"],
   components: {
     GoodspageBody,
     GoodspageFooter
   },
-  async created(){
-         let data = await getGoodsDetail(id);
-         console.log(data);
-         
-     
-  }
+  
 };
 </script>
 

@@ -6,11 +6,11 @@
     <div class="goods_info">
       <div class="price_info">
         <div>
-          <span class="price_now">￥65</span>
-          <span class="price_origin">￥399</span>
+          <span class="price_now">{{getGoodsDetail.group_jumei_price}}</span>
+          <span class="price_origin">{{getGoodsDetail.group_market_price}}</span>
         </div>
         <span class="buy_num">
-          <strong>323</strong>人已购买
+          <strong>{{}}</strong>人已购买
         </span>
       </div>
       <div class="goods_Title">JMsolution 蜂蜜面膜 10片/盒 网红面膜 莹润补水</div>
@@ -57,10 +57,17 @@
 </template>
 
 <script>
+import{getGoodsDetail} from "api/home"
 export default {
   name: "goodspageBody",
-  data() {
-    return {
+  async created(){
+         let data = await getGoodsDetail(id);
+         console.log(data);  
+         this.getGoodsDetail = data.data.recommend_data      
+  },
+  data(){
+    return{
+      getGoodsDetail:{},
       info: [
         { title: "商品名称", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
         { title: "品牌", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
@@ -71,8 +78,9 @@ export default {
         { title: "喷雾类型", msg: "BEPERFECT 小巨蛋热喷蒸脸器" },
         { title: "颜色分类", msg: "BEPERFECT 小巨蛋热喷蒸脸器" }
       ]
-    };
+    }
   }
+ 
 };
 </script>
 
