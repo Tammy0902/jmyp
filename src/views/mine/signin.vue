@@ -106,50 +106,15 @@ export default {
                 console.log("密码不能为空")
             }else{
               // axios.post("http://localhost:3000/abc",obj);
-               
-                 let data=require('static/json/people.json');
-                 console.log(data,"777")
-                  // if (data.abc.tel)
-               
-              // if(){
-              //   await write_json(report, data)
-              // }
-
-
-
+              //  let data=require('static/json/people.json');
+              
+              this.$store.dispatch('mine/setAccount',obj);
               console.log("注册成功");
-              this.$router.replace("/login")
+              setTimeout(this.$router.replace("/login"),1000)
+              
             }
         },
-        /*
-          async def save_report_information(report,report_information):
-    参数：report json文件路径
-            report_information 向json文件中添加的信息
-        """
-      向report json文件中添加数据
-        :return:
-        """
-        #判断json文件是否存在
-        if os.path.exists(report):
-            data = await read_json(report)
-            if data['report']:
-                result = filter(lambda x: x[id'] == report_information[id'], data['report'])
-                #判断id 是否存json文件中
-                isExists = list(result)
-                if len(isExists) > 0:
-                #这条数据在json文件中存在
-                    data['report'].remove(isExists[0])
-                    #删掉此数据
-            data['report'].append(report_information)
-            #重新添加数据
-            await write_json(report, data)
-            return 'success write data'
-        else:
-        #如果文件不存在，创建文件并添加数据
-            await write_json(report, {'report': [report_information]})
-            return 'success write data'
-
-        */
+        
     //      async def save_report_information(report,report_information):
 
     //         let data = await request(people.json)

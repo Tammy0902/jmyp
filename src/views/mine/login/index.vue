@@ -50,6 +50,7 @@
 <script>
 import axios from 'axios'
 import request from 'api/request'
+import {mapState} from "vuex"
 export default {
     data(){
         return{
@@ -57,28 +58,36 @@ export default {
             pwd_in:""
         }
     },
-
+    computed:{
+    ...mapState({
+      abc:state=>state.mine.abc,
+      
+    })
+    },
     
     methods:{
         handleLogin(){
             if(this.tel_in&&this.pwd_in){
-                let data=require('static/json/people.json');
-                console.log(data.abc,"minedata")
-                data.abc.map((item)=>{
-                    console.log(item)
-                    if(item.pwd==this.pwd_in&&item.tel==this.tel_in){
+                // let data=require('static/json/people.json');
+                console.log(this.abc,"this.abc")
+                for(let i=0;i<this.abc.length;i++){
+
+                
+                // this.abc.map((item)=>{
+                    if(this.abc[i].pwd==this.pwd_in && this.abc[i].tel==this.tel_in){
                         
-                        item = JSON.stringify(item);
+                       let item = JSON.stringify(this.abc[i]);
                         sessionStorage.setItem('item',item);
                         // localStorage.setItem('item',item);
                         // var data1 =  JSON.parse(localStorage.getItem('item')) ;
                         // console.log(data1.pwd,222);
-                        console.log(item,"登录成功");
-                        this.$router.replace("/already")
+                        console.log("登录成功");
+                        this.$router.replace("/already");
+                        return;
                     }
-
-                })
-
+                }
+                // })
+                console.log("登录失败1")
             }else{
                 console.log("错误")
             }

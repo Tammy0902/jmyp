@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import "common";
 // import "./mock";
+import "./api/mock"
 
 
 
