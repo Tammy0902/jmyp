@@ -3,8 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "common";
+import VueTouch from "vue-touch"
 // import "./mock";
 
+Vue.use(VueTouch,{name:"v-touch"});
 Vue.filter("ren", function(value) {
       return value.replace("人参与","")
   
